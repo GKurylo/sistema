@@ -46,8 +46,8 @@ if ($id) {
                         </div>
 
                         <div class="offset-2 col-8">
-                            <label for="descricao" class="form-label">Descricao:</label>
-                            <input type="text" class="form-control" id="descricao" name="txtDescricao" value="<?php echo $dados['descricao'] ?? ''; ?>">
+                            <label for="atuacao" class="form-label">Area de Atuação:</label>
+                            <textarea class="form-control" id="atuacao" name="txtAtuacao"><?php echo $dados['atuacao'] ?? ''; ?></textarea>
                         </div>
 
                         <div class="offset-2 col-8">
@@ -70,7 +70,7 @@ if ($id) {
                             <?php if (!empty($dados['imagem'])): ?>
                                 <div class="mt-2">
                                     <p>Capa atual:</p>
-                                    <img src="uploads/<?php echo $dados['imagem']; ?>" alt="Capa atual" style="max-height: 150px; border: 1px solid #ccc;">
+                                    <img src="../uploads/<?php echo $dados['imagem']; ?>" alt="Capa atual" style="max-height: 150px; border: 1px solid #ccc;">
                                 </div>
                             <?php endif; ?>
                             <label for="imagem" class="form-label">Capa:</label>
@@ -83,7 +83,7 @@ if ($id) {
                             <?php if (!empty($dados['matriz'])): ?>
                                 <div class="mt-2">
                                     <p>Matriz atual:</p>
-                                    <a href="uploads/<?php echo $dados['matriz']; ?>" target="_blank">
+                                    <a href="../uploads/<?php echo $dados['matriz']; ?>" target="_blank">
                                         <?php echo $dados['matriz']; ?>
                                     </a>
                                 </div>
@@ -96,7 +96,7 @@ if ($id) {
                             <?php if (!empty($dados['planodecurso'])): ?>
                                 <div class="mt-2">
                                     <p>Plano de Curso atual:</p>
-                                    <a href="uploads/<?php echo $dados['planodecurso']; ?>" target="_blank">
+                                    <a href="../uploads/<?php echo $dados['planodecurso']; ?>" target="_blank">
                                         <?php echo $dados['planodecurso']; ?>
                                     </a>
                                 </div>
@@ -134,6 +134,7 @@ if ($id) {
                             <th>CAPA:</th>
                             <th>NOME:</th>
                             <th>DESCRICAO:</th>
+                            <th>AREA DE ATUAÇÃO:</th>
                             <th>TIPO:</th>
                             <th>LOCAIS:</th>
                             <th>STATUS:</th>
@@ -160,10 +161,14 @@ while ($dados = $sql->fetch()) {
     <tr>
         <td><?php echo $dados['id']; ?></td>
         <td style="width: 150px;">
-            <img src="uploads/<?php echo $dados['imagem']; ?>" class="imgBorda" height="120px">
+            <img src="../uploads/<?php echo $dados['imagem']; ?>" class="imgBorda" height="120px">
         </td>
         <td><?php echo $dados['nome']; ?></td>
         <td><?php echo $dados['descricao']; ?></td>
+        <td><button class="btn btn-info btn-sm"
+                                            onclick="mostrarObs(`<?php echo htmlspecialchars($dados['atuacao'], ENT_QUOTES | ENT_HTML5); ?>`)">
+                                            Ver area de atuação
+                                        </button></td>
         <td><?php echo $dados['tipo'] == 1 ? 'Subsequente' : 'Integrado'; ?></td>
         <td><?php echo implode(', ', $locaisNomes); ?></td>
         <td><?php echo $dados['status'] == 1 ? 'Ativo' : 'Desativo'; ?></td>
@@ -208,6 +213,11 @@ while ($dados = $sql->fetch()) {
 <?php include("app-script.php"); ?>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
+        function mostrarObs(atuacao) {
+            alert(atuacao);
+        }
+        </script>
+<script>        
     $(document).ready(function () {
         $('#meuSelect').select2({
             placeholder: "Selecione as opções",

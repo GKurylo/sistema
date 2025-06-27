@@ -1,9 +1,5 @@
 <?php
 include('conexao.php');
-include("login-validar.php");
-
-$id = isset($_GET["id"]) ? $_GET["id"] : "";
-
 
 $sql = $conn->prepare("
 select * from horarios ;
@@ -19,6 +15,7 @@ $dados = $sql->fetch();
 <head>
     <title>INDEX</title>
     <?php include("app-header.php"); ?>
+   <script src="assets/libs/CKeditor/ckeditor.js"> type="text/css" </script>
 </head>
 
 <body>
@@ -36,17 +33,21 @@ $dados = $sql->fetch();
                     <div class="row mt-3 ">
                         <form action="horario-acao.php" method="post" class="row">
                             <div class="col-12 "><br>
-                                    <label for="secretaria" >Secretaria:</label>
-                                    <textarea placeholder="" type="textarea" class="form-control placeholder:text-sm" id="secretaria" name="txtSecretaria" rows="10" cols="33"><?php
-                                                                                                                                    echo $dados["secretaria"];
-                                                                                                                                 ?></textarea>
+                                <label for="secretaria">Secretaria:</label>
+                                <textarea placeholder="" type="textarea" class="form-control placeholder:text-sm"
+                                    id="secretaria" name="txtSecretaria" rows="10"
+                                    cols="33"><?php
+                                    echo $dados["secretaria"];
+                                    ?></textarea>
                             </div>
 
                             <div class="col-12 "><br>
-                                    <label for="aulas" >Aulas:</label>
-                                    <textarea placeholder="" type="textarea" class="form-control placeholder:text-sm" id="aulas" name="txtAulas" rows="10" cols="33"><?php 
-                                                                                                                                    echo $dados["aulas"];
-                                                                                                                                ?></textarea>
+                                <label for="aulas">Aulas:</label>
+                                <textarea placeholder="" type="textarea" class="form-control placeholder:text-sm"
+                                    id="aulas" name="txtAulas" rows="10"
+                                    cols="33"><?php
+                                    echo $dados["aulas"];
+                                    ?></textarea>
                             </div>
 
                             <div class="col-12 text-center">
@@ -65,6 +66,34 @@ $dados = $sql->fetch();
 
     <?php include("app-script.php"); ?>
 
+  <script type="text/javascript">
+ $(function () {
+        CKEDITOR.replace('secretaria', {
+            enterMode: CKEDITOR.ENTER_BR,
+            filebrowserImageBrowseUrl: 'app-imgupload.php?list=1',
+            filebrowserImageUploadUrl: 'app-imgupload.php',
+            filebrowserWindowWidth: '882',
+            filebrowserWindowHeight: '600',
+            height: '500',
+            extraPlugins: 'tableresize'
+        });
+        CKEDITOR.replace('aulas', {
+            enterMode: CKEDITOR.ENTER_BR,
+            filebrowserImageBrowseUrl: 'app-imgupload.php?list=1',
+            filebrowserImageUploadUrl: 'app-imgupload.php',
+            filebrowserWindowWidth: '882',
+            filebrowserWindowHeight: '600',
+            height: '500',
+            extraPlugins: 'tableresize'
+        });
+        CKEDITOR.config.skin = 'bootstrapck';
+        CKEDITOR.config.forcePasteAsPlainText = true;
+        CKEDITOR.config.toolbar = [
+            ["Source", "Preview", "Bold", "Italic", "Underline", "Strike", "StrikeThrough", "-", "Undo", "Redo", "-", "Cut", "Copy", "Paste", "Find", "SelectAll", "Replace", "-", "Outdent", "Indent", "NumberedList", "BulletedList"], ["FontSize"], ["Table", "Image", "SpecialChar", "HorizontalRule", "TextColor", "BGColor", "-", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock"], ["Link", "Unlink"]];
+        CKEDITOR.config.resize_enabled = false; 
+    });
+    </script>
+    
 
 </body>
 

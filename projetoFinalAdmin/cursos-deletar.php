@@ -12,7 +12,7 @@ $sql->execute();
 $cursos = $sql->fetch(PDO::FETCH_ASSOC);
 
 if ($cursos && !empty($cursos['imagem'])) {
-    $caminhoImagem = __DIR__ . '/uploads/' . $cursos['imagem'];
+    $caminhoImagem ='../uploads/' . $cursos['imagem'];
 
     if (file_exists($caminhoImagem)) {
         unlink($caminhoImagem);

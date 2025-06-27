@@ -15,7 +15,7 @@ include("conexao.php");
                     <a href="cursosdetalhes.php?id=<?php echo $dados['id']; ?>">
                         <?php if (!empty($dados['imagem'])): ?>
                             <div class="mt-2">
-                                <img src="projetoFinalAdmin/uploads/<?php echo $dados['imagem']; ?>"
+                                <img src="uploads/<?php echo $dados['imagem']; ?>"
                                     alt="imagem de: <?php echo $dados['nome'] ?>" class="news-image mb-4">
                             </div>
                         <?php endif; ?>
@@ -39,7 +39,7 @@ include("conexao.php");
                     <a href="cursosdetalhes.php?id=<?php echo $dados['id']; ?>">
                         <?php if (!empty($dados['imagem'])): ?>
                             <div class="mt-2">
-                                <img src="projetoFinalAdmin/uploads/<?php echo $dados['imagem']; ?>"
+                                <img src="uploads/<?php echo $dados['imagem']; ?>"
                                     alt="imagem de: <?php echo $dados['nome'] ?>" class="news-image mb-4">
                             </div>
                         <?php endif; ?>

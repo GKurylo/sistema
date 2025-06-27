@@ -44,9 +44,16 @@ include("login-validar.php");
 						</div>
 						
 						<!-- Botão 4 -->
-						<div class="offset-4 col-4 col-xs-12">
+						<div class="offset-2 col-4 col-xs-12">
 							<a href="horario-editar.php" class="btn btn-success mt-2">
-								<img src="images/127 Sem Título_20250624110353.png" class="img-fluid">
+								<img src="images/127 Sem Título_20250624110353d1.png" class="img-fluid">
+							</a>
+						</div>
+
+						<!-- Botão 5 -->
+						<div class="col-4 col-xs-12">
+							<a href="slides-editar.php" class="btn btn-success mt-2">
+								<img src="images/127 Sem Título_20250627160326.png" class="img-fluid">
 							</a>
 						</div>
 					</div>

@@ -22,7 +22,7 @@ if ($id) {
 
         <!-- Imagem -->
         <div class="col-md-6 text-center">
-            <img src="projetoFinalAdmin/uploads/<?php echo $dados['imagem']; ?>"
+            <img src="uploads/<?php echo $dados['imagem']; ?>"
                 alt="imagem de: <?php echo $dados['nome'] ?>" class="news-image mb-4">
         </div>
     </div>
@@ -77,45 +77,15 @@ if ($id) {
         <div class="card shadow-sm">
             <div class="card-body">
                 <div class="row align-items-center">
+                    
                     <!-- Texto -->
                     <div class="col-md-7">
-                        <p><?php echo $dados['descricao'] ?></p>
-                        <p>
-                            O curso técnico de Desenvolvimento de Sistemas na modalidade integrada ao Ensino
-                            Médio proporciona uma formação completa, unindo os conhecimentos do ensino regular com as
-                            competências técnicas necessárias para atuar na área de tecnologia da informação.
-                        </p>
-                        <p>
-                            Durante os três anos de formação, os alunos aprendem desde os fundamentos da programação até
-                            o desenvolvimento de sistemas completos, incluindo banco de dados, desenvolvimento web,
-                            aplicativos móveis, além de realizar projetos práticos que simulam situações reais do
-                            mercado de trabalho.
-                        </p>
-                        <h4 class="mb-3 mt-4">Objetivos</h4>
-                        <ul>
-                            <li>Formar profissionais técnicos em desenvolvimento de sistemas com sólidos conhecimentos
-                                teóricos e práticos</li>
-                            <li>Desenvolver habilidades para analisar, projetar e implementar sistemas computacionais
-                            </li>
-                            <li>Capacitar para o desenvolvimento de aplicações web e móveis</li>
-                            <li>Promover o conhecimento em banco de dados e infraestrutura de TI</li>
-                            <li>Preparar para a atuação em equipes de desenvolvimento de software</li>
-                        </ul>
-                        <h4 class="mb-3 mt-4">Perfil do Egresso</h4>
-                        <p>O técnico em Análise e Desenvolvimento de Sistemas estará apto a:</p>
-                        <ul>
-                            <li>Desenvolver sistemas computacionais seguindo metodologias de desenvolvimento</li>
-                            <li>Projetar e implementar bancos de dados</li>
-                            <li>Criar interfaces gráficas para aplicações desktop, web e móveis</li>
-                            <li>Realizar testes e manutenção de sistemas</li>
-                            <li>Trabalhar em equipes de desenvolvimento de software</li>
-                            <li>Documentar sistemas e processos de desenvolvimento</li>
-                        </ul>
+                        <?php echo $dados['atuacao']; ?>
                     </div>
 
                     <!-- Imagem -->
                     <div class="col-md-5 text-center">
-                        <img src="projetoFinalAdmin/uploads/<?php echo $dados['imagem']; ?>"
+                        <img src="uploads/<?php echo $dados['imagem']; ?>"
                             alt="imagem de: <?php echo $dados['nome'] ?>" class="img-fluid rounded shadow-sm">
                     </div>
                 </div>
@@ -128,11 +98,11 @@ if ($id) {
             <div class="card-body">
                 <div class="row justify-content-center g-4">
                     <div class="col-12 col-md-6">
-                        <a href="projetoFinalAdmin/uploads/<?php echo $dados['matriz'] ?>" target="_blank"
+                        <a href="uploads/<?php echo $dados['matriz'] ?>" target="_blank"
                             class="text-decoration-none">
                             <div class="card h-100" style="max-width: 400px; margin: 0 auto;">
                                 <div class="card-body d-flex flex-column align-items-center">
-                                    <iframe src="projetoFinalAdmin/uploads/<?php echo $dados['matriz']; ?>" width="100%"
+                                    <iframe src="uploads/<?php echo $dados['matriz']; ?>" width="100%"
                                         height="600px" class="mb-3 border rounded"></iframe>
                                     <button type="button" class="btn btn-dark">Matriz curricular</button>
                                 </div>
@@ -141,13 +111,12 @@ if ($id) {
                     </div>
 
                     <div class="col-12 col-md-6">
-                        <a href="projetoFinalAdmin/uploads/<?php echo $dados['planodecurso'] ?>" target="_blank"
+                        <a href="uploads/<?php echo $dados['planodecurso'] ?>" target="_blank"
                             class="text-decoration-none">
                             <div class="card h-100" style="max-width: 400px; margin: 0 auto;">
                                 <div class="card-body d-flex flex-column align-items-center">
-                                    <iframe src="projetoFinalAdmin/uploads/<?php echo $dados['planodecurso']; ?>"
+                                    <iframe src="uploads/<?php echo $dados['planodecurso']; ?>"
                                         width="100%" height="600px"></iframe>
-                                    class="mb-3 border rounded"></iframe>
                                     <button type="button" class="btn btn-dark">Plano de curso</button>
                                 </div>
                             </div>
@@ -160,20 +129,23 @@ if ($id) {
 
 
     <!-- Galeria -->
-    <div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
+    <div class="fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
         <div class="card shadow-sm bg-white border-0">
             <div class="card-body">
-                <div class="carousel-galeria js-flickity"
-                    data-flickity='{"wrapAround": true, "pageDots": false, "autoPlay": 2500, "draggable": true}'>
-
+                <div class="carousel-galeria js-flickity" data-flickity='{
+                                                                       "wrapAround": true,
+                                                                       "pageDots": false,
+                                                                       "autoPlay": 2500,
+                                                                       "draggable": true
+                                                                    }'>
                     <?php
                     $sql = $conn->prepare("SELECT nome_arquivo FROM `cursos_imagens` where curso_id = 42");
                     $sql->execute();
                     while ($dados = $sql->fetch()) {
                         ?>
                         <div class="carousel-cell">
-                            <a data-fancybox="galeria" href="projetoFinalAdmin/<?php echo $dados['nome_arquivo']; ?>">
-                                <img src="projetoFinalAdmin/<?php echo $dados['nome_arquivo'] ?>"
+                            <a data-fancybox="galeria" href="<?php echo $dados['nome_arquivo']; ?>">
+                                <img src="<?php echo $dados['nome_arquivo'] ?>"
                                     class="galeria-img img-fluid rounded shadow-sm" alt="Foto 1">
                             </a>
                         </div>

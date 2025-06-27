@@ -10,7 +10,7 @@ $sql->execute();
 $noticias = $sql->fetch(PDO::FETCH_ASSOC);
 
 if ($noticias && !empty($noticias['imagem'])) {
-    $caminhoImagem = __DIR__ . '/uploads/' . $noticias['imagem'];
+    $caminhoImagem ='../uploads/' . $noticias['imagem'];
 
     if (file_exists($caminhoImagem)) {
         unlink($caminhoImagem);

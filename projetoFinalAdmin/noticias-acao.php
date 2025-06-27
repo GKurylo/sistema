@@ -6,6 +6,7 @@ $id = $_POST["txtId"] ?? "";
 $titulo = $_POST["txtTitulo"] ?? "";
 $resumo = $_POST["txtResumo"] ?? "";
 $texto = $_POST["txtTexto"] ?? "";
+$Destaque = $_POST["txtDestaque"] ?? 0;
 $status = $_POST["txtStatus"] ?? 0;
 $imagem_antiga = $_POST["imagem_antiga"] ?? "";
 
@@ -19,11 +20,11 @@ if (isset($_FILES["txtImagem"]) && $_FILES["txtImagem"]["error"] == 0) {
     if (in_array($ext, $permitidas)) {
         $novo_nome = uniqid() . "." . $ext;
 
-        if (!is_dir("uploads/")) {
-            mkdir("uploads/", 0755, true);
+        if (!is_dir("../uploads/")) {
+            mkdir("../uploads/", 0755, true);
         }
 
-        if (move_uploaded_file($_FILES["txtImagem"]["tmp_name"], "uploads/" . $novo_nome)) {
+        if (move_uploaded_file($_FILES["txtImagem"]["tmp_name"], "../uploads/" . $novo_nome)) {
             $imagem = $novo_nome;
         } else {
             echo "<script>alert('Erro ao salvar a imagem!'); history.back();</script>";
@@ -55,8 +56,8 @@ if (!$imagem) {
 // Inserir ou atualizar
 if (empty($id)) {
     $sql = $conn->prepare("
-        INSERT INTO noticias (titulo, resumo, texto, imagem, status)
-        VALUES (:titulo, :resumo, :texto, :imagem, :status)
+        INSERT INTO noticias (titulo, resumo, texto, imagem, destaque, status)
+        VALUES (:titulo, :resumo, :texto, :imagem, :destaque ,:status)
     ");
 } else {
     $sql = $conn->prepare("
@@ -65,6 +66,7 @@ if (empty($id)) {
             resumo = :resumo,
             texto = :texto,
             imagem = :imagem,
+            destaque = :destaque,
             status = :status
         WHERE id = :id
     ");
@@ -75,6 +77,7 @@ $sql->bindValue(":titulo", $titulo);
 $sql->bindValue(":resumo", $resumo);
 $sql->bindValue(":texto", $texto);
 $sql->bindValue(":imagem", $imagem);
+$sql->bindValue(":destaque", $Destaque , PDO::PARAM_INT);
 $sql->bindValue(":status", $status, PDO::PARAM_INT);
 
 $sql->execute();

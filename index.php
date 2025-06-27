@@ -1,4 +1,7 @@
-<?php include_once 'includes/header.php'; ?>
+<?php 
+include_once 'includes/header.php'; 
+include('conexao.php'); 
+ ?>
 
 <!-- Carrossel Principal -->
 <section class="container-fluid px-0 mb-5">
@@ -13,13 +16,13 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="projetoFinalAdmin/imagens/FACHADA.jpg" class="d-block w-100" alt="Centro Estadual de Educação Profissional">
+                <img src="imagens/FACHADA.jpg" class="d-block w-100" alt="Centro Estadual de Educação Profissional">
             </div>
             <div class="carousel-item">
-                <img src="projetoFinalAdmin/imagens/FACHADA.jpg" class="d-block w-100" alt="Cursos Profissionalizantes">
+                <img src="imagens/FACHADA.jpg" class="d-block w-100" alt="Cursos Profissionalizantes">
             </div>
             <div class="carousel-item">
-                <img src="projetoFinalAdmin/imagens/estacionamento.jpeg" class="d-block w-100" alt="Infraestrutura Moderna">
+                <img src="imagens/estacionamento.jpeg" class="d-block w-100" alt="Infraestrutura Moderna">
             </div>
         </div>
 
@@ -38,68 +41,61 @@
 <section class="container my-5">
     <h2 class="section-title text-center text-uppercase mb-5">Notícias</h2>
     <div class="row justify-content-center g-4">
-        <!-- Notícia 1 -->
+        <!-- Notícia  -->
+
+        <?php
+$sql = $conn->prepare("SELECT * FROM noticias ORDER BY id ASC");
+$sql->execute();
+while ($dados = $sql->fetch()) { 
+    ?>
+
         <div class="col-12 col-md-6 col-lg-4">
             <div class="news-card text-center p-4">
                 <div class="d-flex justify-content-center mb-4">
-                    <img src="img/noticia.png" class="news-image" alt="Aula Virtual na Usina">
+                   <img src="uploads/<?php echo $dados['imagem']; ?>">
                 </div>
-                <h5 class="fw-bold text-uppercase text-primary-custom">Aula Virtual na Usina de Salto Santiago – ENGIE</h5>
+                <h5 class="fw-bold text-uppercase text-primary-custom"><?php echo $dados ['titulo']; ?></h5>
                 <!--<p class="text-muted small mt-3">Estudantes participaram de uma experiência única de aprendizado virtual na usina hidrelétrica.</p>-->
-                <a href="noticias.php" class="btn btn-primary-custom btn-sm mt-2">Leia Mais</a>
+                <a href="noticiasdetalhes.php?=id<?php echo $dados ['id'] ?>" class="btn btn-primary-custom btn-sm mt-2">Leia Mais</a>
             </div>
         </div>
 
-        <!-- Notícia 2 -->
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="news-card text-center p-4">
-                <div class="d-flex justify-content-center mb-4">
-                    <img src="img/noticia.png" class="news-image" alt="Inscrições Abertas">
-                </div>
-                <h5 class="fw-bold text-uppercase text-primary-custom">Inscrições Abertas para Cursos Profissionalizantes</h5>
-                <!--<p class="text-muted small mt-3">Não perca a oportunidade de se qualificar profissionalmente. Inscrições abertas!</p>-->
-                <a href="cursos.php" class="btn btn-primary-custom btn-sm mt-2">Saiba Mais</a>
-            </div>
-        </div>
+<?php } ?>
 
-        <!-- Notícia 3 -->
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="news-card text-center p-4">
-                <div class="d-flex justify-content-center mb-4">
-                    <img src="img/noticia.png" class="news-image" alt="Atenção Alunos">
-                </div>
-                <h5 class="fw-bold text-uppercase text-primary-custom">Atenção Alunos e Responsáveis</h5>
-                <!--<p class="text-muted small mt-3">Informações importantes sobre o calendário acadêmico e atividades escolares.</p>-->
-                <a href="noticias.php" class="btn btn-primary-custom btn-sm mt-2">Ver Detalhes</a>
-            </div>
-        </div>
     </div>
 </section>
 
 <!-- Seção Destaque -->
+
+
+
 <section class="container my-5">
     <div class="highlight-section">
         <h2 class="section-title text-center text-uppercase mb-5">Destaque</h2>
+
+<?php
+$sql = $conn->prepare("SELECT * FROM noticias WHERE destaque = 1");
+$sql->execute();
+while ($dados = $sql->fetch()) { 
+    ?>
+
         <div class="row align-items-center">
             <div class="col-lg-8 mb-4 mb-lg-0">
-                <h3 class="text-primary-custom mb-4">Novos Cursos Disponíveis</h3>
+                <h3 class="text-primary-custom mb-4"><?php echo $dados['titulo']; ?></h3>
                 <p class="lead mb-4">
-                    O CEEP tem o prazer de anunciar a abertura de novos cursos que preparam você para os desafios do mercado de trabalho.
+                   <?php echo $dados['resumo']; ?>
                 </p>
                 <p class="mb-4">
-                    Com uma abordagem prática e focada nas demandas atuais, nossos cursos oferecem uma formação de qualidade em áreas como
-                    Tecnologia da Informação, Automação Industrial, Saúde, Design e muito mais.
-                </p>
-                <p class="mb-4">
-                    Seja para quem busca aprimoramento profissional ou para quem quer começar uma nova carreira, estamos aqui para
-                    ajudá-lo a alcançar seus objetivos.
+                    <?php echo $dados['texto']; ?>
                 </p>
             </div>
-
             <div class="col-lg-4 text-center">
-                <img src="img/destaque.jpg" alt="Estudantes em Destaque" class="img-fluid highlight-image">
+                <img src="uploads/<?php echo $dados['imagem']; ?>" class="img-fluid highlight-image">
             </div>
-        </div>
+        </div>  <hr> <br> 
+
+<?php } ?>
+
     </div>
 </section>
 

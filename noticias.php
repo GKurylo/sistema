@@ -18,7 +18,7 @@ include('conexao.php');
       <a href="noticiasdetalhes.php?id=<?php echo $dados['id']?>" class="text-decoration-none text-dark d-block h-100">
         <div class="news-card text-center p-4 h-100">
           <div class="d-flex justify-content-center mb-4">
-            <img src="projetoFinalAdmin/uploads/<?php echo $dados['imagem']; ?>" class="card-img-top rounded shadow-sm img-fluid" alt="Notícia 1" style="height: 200px; object-fit: cover;">
+            <img src="uploads/<?php echo $dados['imagem']; ?>" class="card-img-top rounded shadow-sm img-fluid" alt="Notícia 1" style="height: 200px; object-fit: cover;">
 
           </div>
           <h6 class="fw-bold text-uppercase text-primary-custom"><?php echo $dados['titulo'];?></h6>

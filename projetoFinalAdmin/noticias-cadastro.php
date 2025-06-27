@@ -35,6 +35,7 @@ if ($id) {
                     <div class="row mt-3">
                         <form action="noticias-acao.php" method="post" enctype="multipart/form-data" class="row">
                             <input type="hidden" name="txtId" value="<?php echo $dados['id'] ?? ''; ?>">
+
                             <input type="hidden" name="imagem_antiga" value="<?php echo $dados['imagem'] ?? ''; ?>">
 
 
@@ -65,9 +66,18 @@ if ($id) {
                                 <?php if (!empty($dados['imagem'])): ?>
                                     <div>
                                         <p>Imagem atual:</p>
-                                        <img src="uploads/<?php echo $dados['imagem']; ?>" alt="Imagem atual" style="max-height: 150px; border: 1px solid #ccc; padding: 5px;">
+                                        <img src="../uploads/<?php echo $dados['imagem']; ?>" alt="Imagem atual" style="max-height: 150px; border: 1px solid #ccc; padding: 5px;">
                                     </div>
                                 <?php endif; ?>
+                            </div>
+
+                            <!-- Destaque -->
+                            <div class="offset-2 col-8">
+                                <label for="destaque" class="form-label">Destaque:</label>
+                                <select class="form-control" id="destaque" name="txtDestaque">
+                                    <option value="0" <?php if (($dados['destaque'] ?? '') == 0) echo 'selected'; ?>>não</option>
+                                    <option value="1" <?php if (($dados['destaque'] ?? '') == 1) echo 'selected'; ?>>sim</option>
+                                </select>
                             </div>
 
                             <!-- Status -->
@@ -94,6 +104,7 @@ if ($id) {
                                 <th>CAPA:</th>
                                 <th>TÍTULO:</th>
                                 <th>RESUMO:</th>
+                                <th>TEM DESTAQUE:</th>
                                 <th>STATUS:</th>
                                 <th>OPÇÕES:</th>
                             </tr>
@@ -106,10 +117,11 @@ if ($id) {
                                 <tr>
                                     <td><?php echo $dados['id']; ?></td>
                                     <td style="width: 150px;">
-                                        <img src='uploads/<?php echo $dados['imagem'] ?? ''; ?>' class='imgBorda' height='120px'>
+                                        <img src='../uploads/<?php echo $dados['imagem'] ?? ''; ?>' class='imgBorda' height='120px'>
                                     </td>
                                     <td><?php echo $dados['titulo']; ?></td>
                                     <td><?php echo $dados['resumo']; ?></td>
+                                    <td><?php echo $dados['destaque'] == 1 ? 'Sim' : 'Não'; ?></td>
                                     <td><?php echo $dados['status'] == 1 ? 'Ativo' : 'Bloqueado'; ?></td>
                                     <td class="text-center">
                                         <a href="noticias-cadastro.php?id=<?php echo $dados['id']; ?>" class="btn btn-warning btn-sm">

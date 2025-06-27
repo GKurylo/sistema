@@ -1,4 +1,9 @@
-<?php include_once 'includes/header.php'; ?>
+<?php include_once 'includes/header.php';
+include('conexao.php');
+$sql = $conn->prepare("SELECT * FROM horarios");
+$sql->execute();
+$dados = $sql->fetch();
+?>
 
 <section class="container contact-info py-5">
     <div class="row g-4">
@@ -8,21 +13,30 @@
             <div class="news-card text-center p-4" style="background-color: #fff;">
                 <div class="card-body">
                     <h3 class="card-title mb-4">Informações </h3>
-                    <p><i class="bi bi-house-door me-2"></i><strong>Endereço:</strong><br>Rua Coronel Guilherme de Paula, 530. Laranjeiras do Sul – PR, Centro,</p>
+                    <p><i class="bi bi-house-door me-2"></i><strong>Endereço:</strong><br>Rua Coronel Guilherme de
+                        Paula, 530. Laranjeiras do Sul – PR, Centro,</p>
                     <p><i class="bi bi-phone me-2"></i><strong>Telefone:</strong><br>(42) 3635-2397</p>
-                    <p><i class="bi bi-envelope me-2"></i><strong>Email:</strong><br>ljsceeplaranjeiras@seed.pr.gov.br</p>
+                    <p><i class="bi bi-envelope me-2"></i><strong>Email:</strong><br>ljsceeplaranjeiras@seed.pr.gov.br
+                    </p>
                     <i class="bi bi-clock me-2"></i><strong>Horário de Funcionamento:</strong>
-                    <div class="mb-3">
-                        <span class="d-block">07:30 às 11:50</span>
-                        <span class="d-block">13:00 às 17:20</span>
-                        <span class="d-block">18:40 às 22:30</span>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <?php echo $dados['aulas'] ?>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <?php echo $dados['secretaria'] ?>
+                        </div>
                     </div>
+
 
                     <!-- Ícones sociais -->
                     <div class="social-icons mt-4">
-                        <a href="#" class="text-dark fs-4 mx-2" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-dark fs-4 mx-2" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-dark fs-4 mx-2" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="text-dark fs-4 mx-2" aria-label="Instagram"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-dark fs-4 mx-2" aria-label="Facebook"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-dark fs-4 mx-2" aria-label="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
                         <a href="#" class="text-dark fs-4 mx-2" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
@@ -47,7 +61,8 @@
                             <label for="message" class="form-label">Mensagem</label>
                             <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100" style="background-color: #361c11;">Enviar por E-mail</button>
+                        <button type="submit" class="btn btn-primary w-100" style="background-color: #361c11;">Enviar
+                            por E-mail</button>
                     </form>
                 </div>
             </div>
@@ -65,11 +80,7 @@
     <div class="rounded overflow-hidden" style="height: 400px;">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.1200193646923!2d-52.42326082534418!3d-25.400792831735316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94efcb1205ab6b87%3A0x4c6769f192dbec61!2sCEEP%20Prof%C2%AA.%20Naiana%20Bavaresco%20Souza%20-%20Escola%20T%C3%A9cnica%20de%20Laranjeiras%20do%20Sul%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1742170914658!5m2!1spt-BR!2sbr"
-            width="100%"
-            height="100%"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
     </div>
