@@ -13,13 +13,13 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="img/FACHADA.jpg" class="d-block w-100" alt="Centro Estadual de Educação Profissional">
+                <img src="projetoFinalAdmin/imagens/FACHADA.jpg" class="d-block w-100" alt="Centro Estadual de Educação Profissional">
             </div>
             <div class="carousel-item">
-                <img src="img/FACHADA.jpg" class="d-block w-100" alt="Cursos Profissionalizantes">
+                <img src="projetoFinalAdmin/imagens/FACHADA.jpg" class="d-block w-100" alt="Cursos Profissionalizantes">
             </div>
             <div class="carousel-item">
-                <img src="img/estacionamento.jpeg" class="d-block w-100" alt="Infraestrutura Moderna">
+                <img src="projetoFinalAdmin/imagens/estacionamento.jpeg" class="d-block w-100" alt="Infraestrutura Moderna">
             </div>
         </div>
 

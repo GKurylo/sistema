@@ -34,15 +34,16 @@ while ($dados = $sql->fetch()) {
                                                                     }'>
 
                 <?php
-                $sql = $conn->prepare("SELECT * FROM noticias_imagens where id='$id'");
+                $sql = $conn->prepare("SELECT nome_arquivo FROM noticias
+                                              LEFT JOIN noticias_imagens ON noticias_imagens.noticia_id = noticias.id");           
                 $sql->execute();
                 
                 while ($dados = $sql->fetch()) {
                     ?>
 
                     <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="img/eletrotecnica.jpeg">
-                            <img src="projetoFinalAdmin/uploads/<?php echo $dados['nome_arquivo'] ?>" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 1">
+                        <a data-fancybox="galeria">
+                            <img src="projetoFinalAdmin/<?php echo $dados['nome_arquivo'] ?>" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 1">
                         </a>
                     </div>
 

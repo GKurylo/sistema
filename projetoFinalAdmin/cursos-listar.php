@@ -90,7 +90,7 @@ if (isset($_GET["delete"])) {
 
 <body>
 
-    <h3>Upload de Imagens para o Notícia #<?= $id ?></h3>
+    <h3>Upload de Imagens para o Cursos #<?= $id ?></h3>
 
     <form action="cursos-listar.php?id=<?= $id ?>" class="dropzone" id="albumDropzone"></form>
 

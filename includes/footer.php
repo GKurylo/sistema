@@ -16,8 +16,10 @@
 
                 <!-- Ícones sociais -->
                 <div class="social-icons mt-2">
-                    <a href="https://www.instagram.com/ceeplaranjeiras?igsh=MXB6dzM3bDh1aml0Nw==" class="text-white fs-5 mx-2"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/ceeplaranjeirasdosul" class="text-white fs-5 mx-2"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/ceeplaranjeiras?igsh=MXB6dzM3bDh1aml0Nw=="
+                        class="text-white fs-5 mx-2"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/ceeplaranjeirasdosul" class="text-white fs-5 mx-2"><i
+                            class="fab fa-facebook"></i></a>
                     <a href="#" class="text-white fs-5 mx-2"><i class="fab fa-whatsapp"></i></a>
                     <a href="#" class="text-white fs-5 mx-2"><i class="fas fa-envelope"></i></a>
                 </div>
@@ -37,9 +39,16 @@
 </footer>
 
 <!-- Bootstrap 5 JS Bundle com Popper -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
 <!-- JavaScript personalizado -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
 <script src="js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script>
@@ -50,7 +59,7 @@
 
 
 <script>
-    /*
+    
     document.addEventListener('DOMContentLoaded', function() {
         const galleryTab = document.querySelector('#gallery-tab');
 
@@ -63,7 +72,7 @@
         if (document.querySelector('#gallery').classList.contains('show')) {
             Fancybox.bind('[data-fancybox="galeria"]');
         }
-    });*/
+    });
 </script>
 
 </body>

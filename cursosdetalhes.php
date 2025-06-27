@@ -79,6 +79,7 @@ if ($id) {
                 <div class="row align-items-center">
                     <!-- Texto -->
                     <div class="col-md-7">
+                        <p><?php echo $dados['descricao'] ?></p>
                         <p>
                             O curso técnico de Desenvolvimento de Sistemas na modalidade integrada ao Ensino
                             Médio proporciona uma formação completa, unindo os conhecimentos do ensino regular com as
@@ -127,11 +128,12 @@ if ($id) {
             <div class="card-body">
                 <div class="row justify-content-center g-4">
                     <div class="col-12 col-md-6">
-                        <a href="matriz-agro.pdf" target="_blank" class="text-decoration-none">
+                        <a href="projetoFinalAdmin/uploads/<?php echo $dados['matriz'] ?>" target="_blank"
+                            class="text-decoration-none">
                             <div class="card h-100" style="max-width: 400px; margin: 0 auto;">
                                 <div class="card-body d-flex flex-column align-items-center">
-                                    <iframe src="matriz-agro.pdf" width="100%" height="200px"
-                                        class="mb-3 border rounded"></iframe>
+                                    <iframe src="projetoFinalAdmin/uploads/<?php echo $dados['matriz']; ?>" width="100%"
+                                        height="600px" class="mb-3 border rounded"></iframe>
                                     <button type="button" class="btn btn-dark">Matriz curricular</button>
                                 </div>
                             </div>
@@ -139,11 +141,13 @@ if ($id) {
                     </div>
 
                     <div class="col-12 col-md-6">
-                        <a href="Plano_de_Curso_Agroneg.pdf" target="_blank" class="text-decoration-none">
+                        <a href="projetoFinalAdmin/uploads/<?php echo $dados['planodecurso'] ?>" target="_blank"
+                            class="text-decoration-none">
                             <div class="card h-100" style="max-width: 400px; margin: 0 auto;">
                                 <div class="card-body d-flex flex-column align-items-center">
-                                    <iframe src="Plano_de_Curso_Agroneg.pdf" width="100%" height="200px"
-                                        class="mb-3 border rounded"></iframe>
+                                    <iframe src="projetoFinalAdmin/uploads/<?php echo $dados['planodecurso']; ?>"
+                                        width="100%" height="600px"></iframe>
+                                    class="mb-3 border rounded"></iframe>
                                     <button type="button" class="btn btn-dark">Plano de curso</button>
                                 </div>
                             </div>
@@ -161,32 +165,21 @@ if ($id) {
             <div class="card-body">
                 <div class="carousel-galeria js-flickity"
                     data-flickity='{"wrapAround": true, "pageDots": false, "autoPlay": 2500, "draggable": true}'>
-                    <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="img/eletrotecnica.jpeg">
-                            <img src="img/quadra1.jpeg" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 1">
-                        </a>
-                    </div>
-                    <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="img/enfermagem.jpeg">
-                            <img src="img/quadra2.jpeg" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 2">
-                        </a>
-                    </div>
-                    <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="img/estacionamento.jpeg">
-                            <img src="img/quadra3.jpeg" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 3">
-                        </a>
-                    </div>
-                    <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="img/farmacia.jpeg">
-                            <img src="img/formaturaadm.jpg" class="galeria-img img-fluid rounded shadow-sm"
-                                alt="Foto 4">
-                        </a>
-                    </div>
-                    <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="img/estacionamento.jpeg">
-                            <img src="img/turmaadm.jpg" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 3">
-                        </a>
-                    </div>
+
+                    <?php
+                    $sql = $conn->prepare("SELECT nome_arquivo FROM `cursos_imagens` where curso_id = 42");
+                    $sql->execute();
+                    while ($dados = $sql->fetch()) {
+                        ?>
+                        <div class="carousel-cell">
+                            <a data-fancybox="galeria" href="projetoFinalAdmin/<?php echo $dados['nome_arquivo']; ?>">
+                                <img src="projetoFinalAdmin/<?php echo $dados['nome_arquivo'] ?>"
+                                    class="galeria-img img-fluid rounded shadow-sm" alt="Foto 1">
+                            </a>
+                        </div>
+
+                    <?php } ?>
+
                     <!-- Adicione mais imagens aqui -->
                 </div>
 

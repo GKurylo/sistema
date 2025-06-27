@@ -46,8 +46,7 @@ include("login-validar.php");
 						<!-- Botão 4 -->
 						<div class="offset-4 col-4 col-xs-12">
 							<a href="horario-editar.php" class="btn btn-success mt-2">
-								<i class="fas fa-plus-circle mr-2"></i>
-								Editar horario
+								<img src="images/127 Sem Título_20250624110353.png" class="img-fluid">
 							</a>
 						</div>
 					</div>

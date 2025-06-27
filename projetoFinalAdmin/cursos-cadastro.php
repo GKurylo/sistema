@@ -32,10 +32,17 @@ if ($id) {
                     <form action="cursos-acao.php" method="post" class="row" enctype="multipart/form-data">
                         <input type="hidden" name="txtId" value="<?php echo $dados['id'] ?? ''; ?>">
                         <input type="hidden" name="imagem_antiga" value="<?php echo $dados['imagem'] ?? ''; ?>">
+                        <input type="hidden" name="matriz_antiga" value="<?php echo $dados['matriz'] ?? ''; ?>">
+                        <input type="hidden" name="plano_antigo" value="<?php echo $dados['planodecurso'] ?? ''; ?>">
 
                         <div class="offset-2 col-8">
                             <label for="nome" class="form-label">Nome:</label>
                             <input type="text" class="form-control" id="nome" name="txtNome" value="<?php echo $dados['nome'] ?? ''; ?>">
+                        </div>
+
+                        <div class="offset-2 col-8">
+                            <label for="descricao" class="form-label">Descricao:</label>
+                            <input type="text" class="form-control" id="descricao" name="txtDescricao" value="<?php echo $dados['descricao'] ?? ''; ?>">
                         </div>
 
                         <div class="offset-2 col-8">
@@ -60,14 +67,41 @@ if ($id) {
                         </div>
 
                         <div class="offset-2 col-8">
-                            <label for="imagem" class="form-label">Capa:</label>
-                            <input type="file" class="form-control" id="imagem" name="txtImagem">
                             <?php if (!empty($dados['imagem'])): ?>
                                 <div class="mt-2">
-                                    <p>Imagem atual:</p>
+                                    <p>Capa atual:</p>
                                     <img src="uploads/<?php echo $dados['imagem']; ?>" alt="Capa atual" style="max-height: 150px; border: 1px solid #ccc;">
                                 </div>
                             <?php endif; ?>
+                            <label for="imagem" class="form-label">Capa:</label>
+                            <input type="file" class="form-control" id="imagem" name="txtImagem">
+                            
+                        </div>
+                        
+                        <div class="offset-2 col-4">
+                            <label for="matriz" class="form-label">Matriz:</label>
+                            <?php if (!empty($dados['matriz'])): ?>
+                                <div class="mt-2">
+                                    <p>Matriz atual:</p>
+                                    <a href="uploads/<?php echo $dados['matriz']; ?>" target="_blank">
+                                        <?php echo $dados['matriz']; ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                            <input type="file" class="form-control" id="matriz" name="txtMatriz">
+                        </div>
+
+                        <div class="col-4">
+                            <label for="plano" class="form-label">Plano de Curso:</label>
+                            <?php if (!empty($dados['planodecurso'])): ?>
+                                <div class="mt-2">
+                                    <p>Plano de Curso atual:</p>
+                                    <a href="uploads/<?php echo $dados['planodecurso']; ?>" target="_blank">
+                                        <?php echo $dados['planodecurso']; ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                            <input type="file" class="form-control" id="plano" name="txtPlano">
                         </div>
 
                         <div class="offset-2 col-8">
@@ -187,7 +221,7 @@ while ($dados = $sql->fetch()) {
         modalFotos.addEventListener('show.bs.modal', function(event) {
             let button = event.relatedTarget;
             let albumId = button.getAttribute('data-album-id');
-            document.getElementById('iframeFotos').src = 'noticias-listar.php?id=' + albumId;
+            document.getElementById('iframeFotos').src = 'cursos-listar.php?id=' + albumId;
         });
 </script>
 </body>
