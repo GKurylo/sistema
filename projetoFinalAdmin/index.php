@@ -34,8 +34,8 @@ while ($d = $sqlEv->fetch()) {
     <div class="content-body" style="min-height: 899px;">
         <div class="container-fluid">
             <div class="card p-2">
-                <div class="text-center"><h3>SISTEMA DE AGENDAMENTOS</h3></div>
-                <div class="text-center"><div id="calendar" style="width:100%;max-height:700px;"></div></div>
+                <div class="text-center fs-xs-5"><h3>SISTEMA DE AGENDAMENTOS</h3></div>
+                <div class="text-center"><div id="calendar" style="width:100%;max-height:700px;overflow-x: auto; -webkit-overflow-scrolling: touch;"></div></div>
 
                 <!-- Modal Locais -->
                 <div class="modal fade" id="modalLocais" tabindex="-1" aria-hidden="true">
@@ -91,10 +91,10 @@ while ($d = $sqlEv->fetch()) {
                         </div>
                     </div></div>
                 </div>
-
             </div>
         </div>
     </div>
+    
     <?php include("app-footer.php"); ?>
     <?php include("app-script.php"); ?>
 

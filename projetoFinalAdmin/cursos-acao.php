@@ -127,13 +127,32 @@ if ($id) {
     $sql = $conn->prepare("UPDATE cursos 
         SET nome = ?, descricao = ?, atuacao = ?, tipo = ?, status = ?, locais_ids = ?, imagem = ?, matriz = ?, planodecurso = ? 
         WHERE id = ?");
-    $resultado = $sql->execute([$nome, $descricao, $atuacao, $tipo, $status, $locais_string, $imagem, $matriz, $plano, $id]);
+    $resultado = $sql->execute([$nome, 
+    $descricao, 
+    $atuacao, 
+    $tipo, 
+    $status, 
+    $locais_string, 
+    $imagem, 
+    $matriz, 
+    $plano, 
+    $id]);
 } else {
     // Insere novo curso
     $sql = $conn->prepare("INSERT INTO cursos 
         (nome, descricao, atuacao, tipo, status, locais_ids, imagem, matriz, planodecurso) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $resultado = $sql->execute([$nome, $descricao, $atuacao, $tipo, $status, $locais_string, $imagem, $matriz, $plano]);
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $resultado = $sql->execute([
+        $nome,
+        $descricao,
+        $atuacao,
+        $tipo,
+        $status,
+        $locais_string,
+        $imagem,
+        $matriz,
+        $plano
+    ]);
 }
 
 // Redireciona ou mostra erro

@@ -5,11 +5,11 @@ $usuario_id = $_SESSION['id'] ?? null;
 $cargo = null;
 
 if ($usuario_id) {
-    $sql = $conn->prepare("SELECT cargo FROM usuarios WHERE id = :id");
-    $sql->bindValue(":id", $usuario_id);
-    $sql->execute();
-    $usuario = $sql->fetch(PDO::FETCH_ASSOC);
-    $cargo = $usuario['cargo'] ?? null;
+	$sql = $conn->prepare("SELECT cargo FROM usuarios WHERE id = :id");
+	$sql->bindValue(":id", $usuario_id);
+	$sql->execute();
+	$usuario = $sql->fetch(PDO::FETCH_ASSOC);
+	$cargo = $usuario['cargo'] ?? null;
 }
 ?>
 <div id="main-wrapper">
@@ -72,9 +72,12 @@ if ($usuario_id) {
 		</div>
 	</div>
 
-	<?php if ($cargo == 0): ?>
-    <!-- Menu com abas restritas -->
-    <div class="deznav">
+<?php
+// Exibe menu conforme cargo
+if ($cargo === 0) {
+	// Apenas abas restritas: Início e Sair
+	?>
+	<div class="deznav">
 		<div class="deznav-scroll">
 			<ul class="metismenu" id="menu">
 				<li>
@@ -82,7 +85,7 @@ if ($usuario_id) {
 				</li>
 				<li>
 					<a href="index.php" aria-expanded="false">
-						<span class="nav-text">início</span>
+						<span class="nav-text">Início</span>
 					</a>
 				</li>
 				<li>
@@ -93,19 +96,19 @@ if ($usuario_id) {
 			</ul>
 		</div>
 	</div>
-	<?php endif; ?>
-	<?php if ($cargo !== 0): ?>
+	<?php
+} elseif ($cargo === 1) {
+	// Todas as abas
+	?>
 	<div class="deznav">
-
 		<div class="deznav-scroll">
-
 			<ul class="metismenu" id="menu">
 				<li>
 					<h4 style="color: white;" class="text-center nav-text">SISTEMA DE <br> AGENDAMENTOS</h4>
 				</li>
 				<li>
 					<a href="index.php" aria-expanded="false">
-						<span class="nav-text">início</span>
+						<span class="nav-text">Início</span>
 					</a>
 				</li>
 				<li>
@@ -114,17 +117,17 @@ if ($usuario_id) {
 					</a>
 				</li>
 				<li>
-					<a href="locais-pesquisar.php" class="" aria-expanded="false">
+					<a href="locais-pesquisar.php" aria-expanded="false">
 						<span class="nav-text">Locais</span>
 					</a>
 				</li>
 				<li>
-					<a href="agendas-pesquisar.php" class="" aria-expanded="false">
+					<a href="agendas-pesquisar.php" aria-expanded="false">
 						<span class="nav-text">Agendamentos</span>
 					</a>
 				</li>
 				<li>
-					<a href="gerir-site.php" class="" aria-expanded="false">
+					<a href="gerir-site.php" aria-expanded="false">
 						<span class="nav-text">Gerir Site</span>
 					</a>
 				</li>
@@ -135,6 +138,35 @@ if ($usuario_id) {
 				</li>
 			</ul>
 		</div>
-
 	</div>
-	<?php endif; ?>
+	<?php
+} elseif ($cargo === 2) {
+	// Apenas Início, Gerir Site e Sair
+	?>
+	<div class="deznav">
+		<div class="deznav-scroll">
+			<ul class="metismenu" id="menu">
+				<li>
+					<h4 style="color: white;" class="text-center nav-text">SISTEMA DE <br> AGENDAMENTOS</h4>
+				</li>
+				<li>
+					<a href="index.php" aria-expanded="false">
+						<span class="nav-text">Início</span>
+					</a>
+				</li>
+				<li>
+					<a href="gerir-site.php" aria-expanded="false">
+						<span class="nav-text">Gerir Site</span>
+					</a>
+				</li>
+				<li>
+					<a href="sair.php" aria-expanded="false">
+						<span class="nav-text">Sair</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<?php
+}
+?>

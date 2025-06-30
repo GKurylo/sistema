@@ -62,9 +62,9 @@ include_once('includes/header.php');
                         </div>
 
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary-custom btn-lg">
-                                <i class="fas fa-sign-in-alt me-2"></i>Entrar
-                            </button>
+                            <input type="submit" class="btn btn-primary-custom btn-lg">
+                                <!-- <i class="fas fa-sign-in-alt me-2"></i>Entrar
+                            </button> -->
                         </div>
                     </form>
 
@@ -159,23 +159,23 @@ include_once('includes/header.php');
         }
     }
 
-    // Adicionar validação básica
-    document.querySelector('form').addEventListener('submit', function (e) {
-        const usuario = document.getElementById('usuario').value;
-        const password = document.getElementById('password').value;
+    // // Adicionar validação básica
+    // document.querySelector('form').addEventListener('submit', function (e) {
+    //     const usuario = document.getElementById('usuario').value;
+    //     const password = document.getElementById('password').value;
 
-        if (usuario.length < 3) {
-            e.preventDefault();
-            alert('O usuário deve ter pelo menos 3 caracteres.');
-            return;
-        }
+    //     if (usuario.length < 3) {
+    //         e.preventDefault();
+    //         alert('O usuário deve ter pelo menos 3 caracteres.');
+    //         return;
+    //     }
 
-        if (password.length < 4) {
-            e.preventDefault();
-            alert('A senha deve ter pelo menos 4 caracteres.');
-            return;
-        }
-    });
+    //     if (password.length < 4) {
+    //         e.preventDefault();
+    //         alert('A senha deve ter pelo menos 4 caracteres.');
+    //         return;
+    //     }
+    // });
 </script>
 
 <?php include_once('includes/footer.php'); ?>

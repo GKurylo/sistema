@@ -2,17 +2,16 @@
 include('conexao.php');
 include("login-validar.php");
 
-$id = isset($_GET["id"]) ? intval($_GET["id"]) : 0;
+
 $dados = [
     'img1' => '',
     'img2' => '',
     'img3' => ''
 ];
-if ($id > 0) {
-    $sql = $conn->prepare("SELECT * FROM slides WHERE id = ?");
-    $sql->execute([$id]);
+    $sql = $conn->prepare("SELECT * FROM slides");
+    $sql->execute();
     $dados = $sql->fetch();
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -40,62 +39,42 @@ if ($id > 0) {
                                 <div class="col-md-4 text-center mb-2">
                                     <p>Imagem 1 atual:</p>
                                     <img src="../uploads/<?php echo $dados['img1']; ?>" alt="Imagem 1 atual"
-                                        style="max-height: 150px; border: 1px solid #ccc; padding: 5px;">
+                                        style="max-height: 150px; border: 1px solid #ccc; padding: 5px;" class="img-fluid">
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($dados['img2'])): ?>
                                 <div class="col-md-4 text-center mb-2">
                                     <p>Imagem 2 atual:</p>
                                     <img src="../uploads/<?php echo $dados['img2']; ?>" alt="Imagem 2 atual"
-                                        style="max-height: 150px; border: 1px solid #ccc; padding: 5px;">
+                                        style="max-height: 150px; border: 1px solid #ccc; padding: 5px;" class="img-fluid">
                                 </div>
                             <?php endif; ?>
                             <?php if (!empty($dados['img3'])): ?>
                                 <div class="col-md-4 text-center mb-2">
                                     <p>Imagem 3 atual:</p>
                                     <img src="../uploads/<?php echo $dados['img3']; ?>" alt="Imagem 3 atual"
-                                        style="max-height: 150px; border: 1px solid #ccc; padding: 5px;">
+                                        style="max-height: 150px; border: 1px solid #ccc; padding: 5px;" class="img-fluid">
                                 </div>
                             <?php endif; ?>
                         </div>
                     </div>
+
                     <form action="slides-acao.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <div class="offset-2 col-8 mb-3">
                             <label class="form-label">Imagem 1:</label>
                             <input type="file" class="form-control mb-2" name="img1">
                             <input type="hidden" name="img1_antiga" value="<?php echo $dados['img1'] ?? ''; ?>">
-                            <?php if (!empty($dados['img1'])): ?>
-                                <div>
-                                    <p>Imagem atual:</p>
-                                    <img src="../uploads/<?php echo $dados['img1']; ?>" alt="Imagem 1 atual"
-                                        style="max-height: 150px; border: 1px solid #ccc; padding: 5px;">
-                                </div>
-                            <?php endif; ?>
                         </div>
                         <div class="offset-2 col-8 mb-3">
                             <label class="form-label">Imagem 2:</label>
                             <input type="file" class="form-control mb-2" name="img2">
                             <input type="hidden" name="img2_antiga" value="<?php echo $dados['img2'] ?? ''; ?>">
-                            <?php if (!empty($dados['img2'])): ?>
-                                <div>
-                                    <p>Imagem atual:</p>
-                                    <img src="../uploads/<?php echo $dados['img2']; ?>" alt="Imagem 2 atual"
-                                        style="max-height: 150px; border: 1px solid #ccc; padding: 5px;">
-                                </div>
-                            <?php endif; ?>
                         </div>
                         <div class="offset-2 col-8 mb-3">
                             <label class="form-label">Imagem 3:</label>
                             <input type="file" class="form-control mb-2" name="img3">
                             <input type="hidden" name="img3_antiga" value="<?php echo $dados['img3'] ?? ''; ?>">
-                            <?php if (!empty($dados['img3'])): ?>
-                                <div>
-                                    <p>Imagem atual:</p>
-                                    <img src="../uploads/<?php echo $dados['img3']; ?>" alt="Imagem 3 atual"
-                                        style="max-height: 150px; border: 1px solid #ccc; padding: 5px;">
-                                </div>
-                            <?php endif; ?>
                         </div>
                         <div class="offset-2 col-8 mb-3">
                             <button type="submit" class="btn btn-primary">Salvar</button>

@@ -119,13 +119,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Adicionar efeito de loading aos botões de formulário
+   // Adicionar efeito de loading aos botões de formulário
     const submitButtons = document.querySelectorAll('button[type="submit"], input[type="submit"]');
     submitButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             if (this.form && this.form.checkValidity()) {
                 this.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
                 this.disabled = true;
+                this.form.submit(); // ← forçando o envio real aqui
             }
         });
     });

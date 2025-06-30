@@ -1,6 +1,6 @@
 <div class="footer out-footer">
 	<div class="copyright">
-		<p>Copyright © Developed by <a href="https://dexignzone.com/" target="_blank">Dev.</a> <span class="current-year">2024</span></p>
+		<p>Copyright © Todos os direitos reservados Desenvolvido pela turma de Análise e Desenvolvimento de Sistemas 2024/2025</p>
 	</div>
 </div>
 

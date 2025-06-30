@@ -381,3 +381,6 @@ footer a:hover {
     background: var(--primary-color);
 }
 
+.botaogustavo:hover {
+    color: white !important;
+}

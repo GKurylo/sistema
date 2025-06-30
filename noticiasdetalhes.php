@@ -41,8 +41,8 @@ while ($dados = $sql->fetch()) {
                     ?>
 
                     <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="<?php echo $dados['nome_arquivo'] ?>">
-                            <img src="<?php echo $dados['nome_arquivo'] ?>" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 1">
+                        <a data-fancybox="galeria" href="projetoFinalAdmin/<?php echo $dados['nome_arquivo'] ?>">
+                            <img src="projetoFinalAdmin/<?php echo $dados['nome_arquivo'] ?>" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 1">
                         </a>
                     </div>
 

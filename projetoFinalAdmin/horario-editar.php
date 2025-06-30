@@ -1,21 +1,20 @@
 <?php
+session_start();
 include('conexao.php');
 
-$sql = $conn->prepare("
-select * from horarios ;
-");
+$sql = $conn->prepare("SELECT * FROM horarios");
 $sql->execute();
 $dados = $sql->fetch();
-
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-    <title>INDEX</title>
+    <title>Edição de Horarios</title>
+    
     <?php include("app-header.php"); ?>
-   <script src="assets/libs/CKeditor/ckeditor.js"> type="text/css" </script>
+   <script src="../CKeditor/ckeditor.js"> type="text/css" </script>
 </head>
 
 <body>
@@ -77,6 +76,13 @@ $dados = $sql->fetch();
             height: '500',
             extraPlugins: 'tableresize'
         });
+        CKEDITOR.config.skin = 'bootstrapck';
+        CKEDITOR.config.forcePasteAsPlainText = true;
+        CKEDITOR.config.toolbar = [
+            ["Source", "Preview", "Bold", "Italic", "Underline", "Strike", "StrikeThrough", "-", "Undo", "Redo", "-", "Cut", "Copy", "Paste", "Find", "SelectAll", "Replace", "-", "Outdent", "Indent", "NumberedList", "BulletedList"], ["FontSize"], ["Table", "Image", "SpecialChar", "HorizontalRule", "TextColor", "BGColor", "-", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock"], ["Link", "Unlink"]
+        ];
+        CKEDITOR.config.resize_enabled = false; 
+
         CKEDITOR.replace('aulas', {
             enterMode: CKEDITOR.ENTER_BR,
             filebrowserImageBrowseUrl: 'app-imgupload.php?list=1',
@@ -86,11 +92,6 @@ $dados = $sql->fetch();
             height: '500',
             extraPlugins: 'tableresize'
         });
-        CKEDITOR.config.skin = 'bootstrapck';
-        CKEDITOR.config.forcePasteAsPlainText = true;
-        CKEDITOR.config.toolbar = [
-            ["Source", "Preview", "Bold", "Italic", "Underline", "Strike", "StrikeThrough", "-", "Undo", "Redo", "-", "Cut", "Copy", "Paste", "Find", "SelectAll", "Replace", "-", "Outdent", "Indent", "NumberedList", "BulletedList"], ["FontSize"], ["Table", "Image", "SpecialChar", "HorizontalRule", "TextColor", "BGColor", "-", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock"], ["Link", "Unlink"]];
-        CKEDITOR.config.resize_enabled = false; 
     });
     </script>
     

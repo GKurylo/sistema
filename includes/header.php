@@ -66,26 +66,6 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="cursos.php">Todos os Cursos</a></li>
-                            <li>
-                                <h6 class="dropdown-header">Ensino Integrado</h6>
-                            </li>
-                            <li><a class="dropdown-item" href="cursosdetalhes.php">Agricultura</a></li>
-                            <li><a class="dropdown-item" href="cursosdetalhes.php">Agronegócio</a></li>
-                            <li><a class="dropdown-item" href="cursosdetalhes.php">Desenvolvimento</a></li>
-                            <li><a class="dropdown-item" href="cursosdetalhes.php">Administração</a></li>
-                             <li><a class="dropdown-item" href="cursosdetalhes.php">Enfermagem</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <h6 class="dropdown-header">Ensino Subsequente</h6>
-                            </li>
-                             <li><a class="dropdown-item" href="cursosdetalhes.php">Desenvolvimento</a></li>
-                            <li><a class="dropdown-item" href="cursosdetalhes.php">Edificação</a></li>
-                            <li><a class="dropdown-item" href="cursosdetalhes.php">Eletrotécnica</a></li>
-                            <li><a class="dropdown-item" href="cursosdetalhes.php">Enfermagem</a></li>
-                            <li><a class="dropdown-item" href="cursosdetalhes.php">Estética</a></li>
-                            <li><a class="dropdown-item" href="cursosdetalhes.php">Faramácia</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -95,7 +75,7 @@
                         <a class="nav-link px-4" href="contato.php">Contato</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="projetoFinalAdmin/login-2.php">
+                        <a class="nav-link px-4" href="login.php">
                             <i class="fas fa-user-lock"></i> Admin
                         </a>
                     </li>

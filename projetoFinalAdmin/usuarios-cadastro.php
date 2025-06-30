@@ -66,8 +66,10 @@ if ($id) {
                             <div class="col-12 col-md-4 mt-3">
                                 <label for="cargo">Cargo</label>
                                 <select name="txtCargo" id="cargo" class="form-control">
+                                    <option value="2">Gestor</option>
                                     <option value="1" selected>Administração</option>
                                     <option value="0">Professor</option>
+                                    
                                 </select>
                             </div>
 

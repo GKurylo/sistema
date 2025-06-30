@@ -20,22 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Verifica se já existe registro com esse id
-    $existe = false;
-    if ($id > 0) {
-        $check = $conn->prepare("SELECT COUNT(*) FROM slides WHERE id = ?");
-        $check->execute([$id]);
-        $existe = $check->fetchColumn() > 0;
-    }
-
-    if ($existe) {
-        $sql = $conn->prepare("UPDATE slides SET img1 = ?, img2 = ?, img3 = ? WHERE id = ?");
-        $sql->execute([$imagens['img1'], $imagens['img2'], $imagens['img3'], $id]);
-    } else if ($id == 0) {
-        $sql = $conn->prepare("INSERT INTO slides (img1, img2, img3) VALUES (?, ?, ?)");
-        $sql->execute([$imagens['img1'], $imagens['img2'], $imagens['img3']]);
-    }
-
+    $sql = $conn->prepare("UPDATE slides SET img1 = ?, img2 = ?, img3 = ?");
+    $sql->execute([$imagens['img1'], $imagens['img2'], $imagens['img3']]);
+    
     header('Location: slides-editar.php?sucesso=1&id=' . $id);
     exit;
 } else {
