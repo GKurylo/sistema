@@ -4,7 +4,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : "";
 
 if ($id) {
     $sql = $conn->prepare("
-    select * from NOTICIAS where id='$id';
+    select * from noticias where id='$id';
     ");
 
     $sql->execute();

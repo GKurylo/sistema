@@ -6,7 +6,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : "";
 
 if ($id) {
     $sql = $conn->prepare("
-    select * from ALBUNS where id='$id';
+    select * from albuns where id='$id';
     ");
 
     $sql->execute();

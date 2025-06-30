@@ -5,7 +5,7 @@ include("conexao.php");
 $id = isset($_GET["id"]) ? $_GET["id"] : "";
 
 if ($id) {
-    $sql = $conn->prepare("SELECT * FROM CURSOS WHERE id = ?");
+    $sql = $conn->prepare("SELECT * FROM cursos WHERE id = ?");
     $sql->execute([$id]);
     $dados = $sql->fetch();
 }

@@ -1,0 +1,84 @@
+[30-Jun-2025 19:37:22 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.LOCAIS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php on line 12
+[30-Jun-2025 19:37:37 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.LOCAIS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php on line 12
+[30-Jun-2025 19:37:47 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.LOCAIS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php on line 12
+[30-Jun-2025 19:38:00 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.LOCAIS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php on line 12
+[30-Jun-2025 19:38:15 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.LOCAIS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php on line 12
+[30-Jun-2025 19:38:18 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.LOCAIS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php on line 12
+[30-Jun-2025 19:39:33 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.LOCAIS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php on line 12
+[30-Jun-2025 19:39:41 America/Fortaleza] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 2
+[30-Jun-2025 19:39:41 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/agendas-pesquisar.php:1) in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 5
+[30-Jun-2025 19:39:51 America/Fortaleza] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 2
+[30-Jun-2025 19:39:51 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/agendas-pesquisar.php:1) in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 5
+[30-Jun-2025 19:45:52 America/Fortaleza] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 2
+[30-Jun-2025 19:45:52 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/agendas-pesquisar.php:1) in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 5
+[30-Jun-2025 19:46:24 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.CURSOS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/cursos-cadastro.php:9
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/cursos-cadastro.php(9): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/cursos-cadastro.php on line 9
+[30-Jun-2025 19:46:38 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.ALBUNS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/albuns-editar.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/albuns-editar.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/albuns-editar.php on line 12
+[30-Jun-2025 19:47:08 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/agendas-acao.php:54) in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/agendas-acao.php on line 88
+[30-Jun-2025 19:48:26 America/Fortaleza] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 2
+[30-Jun-2025 19:48:26 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/agendas-pesquisar.php:1) in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 5
+[30-Jun-2025 19:48:31 America/Fortaleza] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 2
+[30-Jun-2025 19:48:31 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/agendas-pesquisar.php:1) in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 5
+[30-Jun-2025 19:48:32 America/Fortaleza] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 2
+[30-Jun-2025 19:48:32 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/agendas-pesquisar.php:1) in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 5
+[30-Jun-2025 19:48:32 America/Fortaleza] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 2
+[30-Jun-2025 19:48:32 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/agendas-pesquisar.php:1) in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 5
+[30-Jun-2025 19:48:33 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.LOCAIS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php on line 12
+[30-Jun-2025 19:48:34 America/Fortaleza] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 2
+[30-Jun-2025 19:48:34 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/agendas-pesquisar.php:1) in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 5
+[30-Jun-2025 19:48:50 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.LOCAIS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php on line 12
+[30-Jun-2025 19:48:52 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.LOCAIS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php on line 12
+[30-Jun-2025 19:48:56 America/Fortaleza] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 2
+[30-Jun-2025 19:48:56 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/agendas-pesquisar.php:1) in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/login-validar.php on line 5
+[30-Jun-2025 19:49:10 America/Fortaleza] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'alunosce_site.LOCAIS' doesn't exist in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php:12
+Stack trace:
+#0 /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php(12): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/alunosceep/public_html/codigoIndex/projetoFinalAdmin/locais-cadastro.php on line 12

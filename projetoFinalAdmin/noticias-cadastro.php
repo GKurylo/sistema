@@ -6,7 +6,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : "";
 $dados = [];
 
 if ($id) {
-    $sql = $conn->prepare("SELECT * FROM NOTICIAS WHERE id = :id");
+    $sql = $conn->prepare("SELECT * FROM noticias WHERE id = :id");
     $sql->bindParam(':id', $id, PDO::PARAM_INT);
     $sql->execute();
     $dados = $sql->fetch();

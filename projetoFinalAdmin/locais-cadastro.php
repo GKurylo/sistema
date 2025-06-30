@@ -6,7 +6,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : "";
 
 if ($id) {
     $sql = $conn->prepare("
-    select * from LOCAIS where id='$id';
+    select * from locais where id='$id';
     ");
 
     $sql->execute();
