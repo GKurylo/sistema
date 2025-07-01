@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01/07/2025 às 14:42
+-- Tempo de geração: 01/07/2025 às 21:29
 -- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,8 +43,7 @@ CREATE TABLE `agendas` (
 --
 
 INSERT INTO `agendas` (`id`, `usuario_id`, `local_id`, `data`, `arquivo`, `observacao`, `horario`, `horariofin`) VALUES
-(2, 1, 1, '2025-06-02', NULL, 'lllll', '07:30:00', '08:20:00'),
-(3, 1, 1, '2025-06-02', NULL, 'lllll', '08:20:00', '09:10:00');
+(4, 1, 1, '2025-07-01', NULL, '', '22:10:00', '23:00:00');
 
 -- --------------------------------------------------------
 
@@ -779,7 +778,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendas`
 --
 ALTER TABLE `agendas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `albuns`
