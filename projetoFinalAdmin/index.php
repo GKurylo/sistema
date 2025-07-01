@@ -30,7 +30,7 @@ while ($d = $sqlEv->fetch()) {
 </head>
 <body>
 
-    <?php include("app-lateral.php"); ?>
+    <?php require("app-lateral.php");  ?>
     <div class="content-body" style="min-height: 899px;">
         <div class="container-fluid">
             <div class="card p-2">

@@ -20,7 +20,7 @@
                         class="text-white fs-5 mx-2"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/ceeplaranjeirasdosul" class="text-white fs-5 mx-2"><i
                             class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-white fs-5 mx-2"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/554236352397?text=Olá%20quero%20mais%20informações!" class="text-white fs-5 mx-2"><i class="fab fa-whatsapp"></i></a>
                     <a href="#" class="text-white fs-5 mx-2"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
