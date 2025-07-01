@@ -45,8 +45,10 @@ include("login-validar.php");
                                     <td><?php echo "$dados[nome]" ?></td>
                                     <td><?php echo "$dados[usuario]" ?></td>
                                     <td>
-                                        <?php
-                                        if ($dados['cargo'] == 1) {
+                                        <?php 
+                                        if ($dados['cargo'] == 2) {
+                                            echo "gestor";
+                                        } elseif ($dados['cargo'] == 1) {
                                             echo "Administrador";
                                         } else {
                                             echo "Professor";

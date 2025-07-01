@@ -1,5 +1,4 @@
 <?php
-include("conexao.php");
 
 $usuario_id = $_SESSION['id'] ?? null;
 $cargo = null;
@@ -72,101 +71,102 @@ if ($usuario_id) {
 		</div>
 	</div>
 
-<?php
-// Exibe menu conforme cargo
-if ($cargo === 0) {
-	// Apenas abas restritas: Início e Sair
-	?>
-	<div class="deznav">
-		<div class="deznav-scroll">
-			<ul class="metismenu" id="menu">
-				<li>
-					<h4 style="color: white;" class="text-center nav-text">SISTEMA DE <br> AGENDAMENTOS</h4>
-				</li>
-				<li>
-					<a href="index.php" aria-expanded="false">
-						<span class="nav-text">Início</span>
-					</a>
-				</li>
-				<li>
-					<a href="sair.php" aria-expanded="false">
-						<span class="nav-text">Sair</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
 	<?php
-} elseif ($cargo === 1) {
-	// Todas as abas
-	?>
-	<div class="deznav">
-		<div class="deznav-scroll">
-			<ul class="metismenu" id="menu">
-				<li>
-					<h4 style="color: white;" class="text-center nav-text">SISTEMA DE <br> AGENDAMENTOS</h4>
-				</li>
-				<li>
-					<a href="index.php" aria-expanded="false">
-						<span class="nav-text">Início</span>
-					</a>
-				</li>
-				<li>
-					<a href="usuarios-pesquisar.php" aria-expanded="false">
-						<span class="nav-text">Usuários</span>
-					</a>
-				</li>
-				<li>
-					<a href="locais-pesquisar.php" aria-expanded="false">
-						<span class="nav-text">Locais</span>
-					</a>
-				</li>
-				<li>
-					<a href="agendas-pesquisar.php" aria-expanded="false">
-						<span class="nav-text">Agendamentos</span>
-					</a>
-				</li>
-				<li>
-					<a href="gerir-site.php" aria-expanded="false">
-						<span class="nav-text">Gerir Site</span>
-					</a>
-				</li>
-				<li>
-					<a href="sair.php" aria-expanded="false">
-						<span class="nav-text">Sair</span>
-					</a>
-				</li>
-			</ul>
+	// Exibe menu conforme cargo
+	if ($cargo === 0) {
+		// Apenas abas restritas: Início e Sair
+		?>
+		<div class="deznav">
+			<div class="deznav-scroll">
+				<ul class="metismenu" id="menu">
+					<li>
+						<h4 style="color: white;" class="text-center nav-text">SISTEMA DE <br> AGENDAMENTOS</h4>
+					</li>
+					<li>
+						<a href="index.php" aria-expanded="false">
+							<span class="nav-text">Início</span>
+						</a>
+					</li>
+					<li>
+						<a href="sair.php" aria-expanded="false">
+							<span class="nav-text">Sair</span>
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-	</div>
-	<?php
-} elseif ($cargo === 2) {
-	// Apenas Início, Gerir Site e Sair
-	?>
-	<div class="deznav">
-		<div class="deznav-scroll">
-			<ul class="metismenu" id="menu">
-				<li>
-					<h4 style="color: white;" class="text-center nav-text">SISTEMA DE <br> AGENDAMENTOS</h4>
-				</li>
-				<li>
-					<a href="index.php" aria-expanded="false">
-						<span class="nav-text">Início</span>
-					</a>
-				</li>
-				<li>
-					<a href="gerir-site.php" aria-expanded="false">
-						<span class="nav-text">Gerir Site</span>
-					</a>
-				</li>
-				<li>
-					<a href="sair.php" aria-expanded="false">
-						<span class="nav-text">Sair</span>
-					</a>
-				</li>
-			</ul>
+		<?php
+	} elseif ($cargo == 1) {
+		// Todas as abas
+		?>
+		<div class="deznav">
+			<div class="deznav-scroll">
+				<ul class="metismenu" id="menu">
+					<li>
+						<h4 style="color: white;" class="text-center nav-text">SISTEMA DE <br> AGENDAMENTOS</h4>
+					</li>
+					<li>
+						<a href="index.php" aria-expanded="false">
+							<span class="nav-text">Início</span>
+						</a>
+					</li>
+					<li>
+						<a href="usuarios-pesquisar.php" aria-expanded="false">
+							<span class="nav-text">Usuários</span>
+						</a>
+					</li>
+					<li>
+						<a href="locais-pesquisar.php" aria-expanded="false">
+							<span class="nav-text">Locais</span>
+						</a>
+					</li>
+					<li>
+						<a href="agendas-pesquisar.php" aria-expanded="false">
+							<span class="nav-text">Agendamentos</span>
+						</a>
+					</li>
+					<li>
+						<a href="gerir-site.php" aria-expanded="false">
+							<span class="nav-text">Gerir Site</span>
+						</a>
+					</li>
+					<li>
+						<a href="sair.php" aria-expanded="false">
+							<span class="nav-text">Sair</span>
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-	</div>
-	<?php
-}
-?>
+		<?php
+	} elseif ($cargo == 2) {
+		// Apenas Início, Gerir Site e Sair
+		?>
+		<div class="deznav">
+			<div class="deznav-scroll">
+				<ul class="metismenu" id="menu">
+					<li>
+						<h4 style="color: white;" class="text-center nav-text">SISTEMA DE <br> AGENDAMENTOS</h4>
+					</li>
+					<li>
+						<a href="index.php" aria-expanded="false">
+							<span class="nav-text">Início</span>
+						</a>
+					</li>
+					<li>
+						<a href="gerir-site.php" aria-expanded="false">
+							<span class="nav-text">Gerir Site</span>
+						</a>
+					</li>
+					<li>
+						<a href="sair.php" aria-expanded="false">
+							<span class="nav-text">Sair</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<?php
+	}
+ 
+	?>

@@ -9,26 +9,46 @@ $data = $_POST['txtData'] ?? '';
 $horario = $_POST['txtHorario'] ?? '';
 $id = $_POST['txtid'] ?? '';
 
-// Calcula o horário final (+50 minutos)
-$dataMod = new DateTime($horario);
-$dataMod->modify('+50 minutes');
-$horariofin = $dataMod->format('H:i:s');
-
 // Converter data de dd/mm/yyyy para yyyy-mm-dd
 if (strpos($data, '/') !== false) {
     $partes = explode('/', $data);
     $data = $partes[2] . '-' . $partes[1] . '-' . $partes[0];
 }
 
+// Calcula o horário final (+50 minutos)
+$dataMod = new DateTime($horario);
+$dataMod->modify('+50 minutes');
+$horariofin = $dataMod->format('H:i:s');
+
+// Verifica se a data é anterior à data atual
+$hoje = new DateTime();
+$dataAgendada = new DateTime($data);
+
+if ($dataAgendada < $hoje->setTime(0, 0)) {
+    echo "<script>alert('Erro: Não é possível agendar para datas passadas.'); window.location = 'agendas-cadastro.php';</script>";
+    exit;
+}
+
+// Verifica se a data está dentro da semana atual (segunda a domingo)
+$inicioSemana = new DateTime(); // hoje
+$inicioSemana->modify('monday this week')->setTime(0, 0); // segunda
+$fimSemana = new DateTime(); // hoje
+$fimSemana->modify('sunday this week')->setTime(23, 59, 59); // domingo
+
+if ($dataAgendada < $inicioSemana || $dataAgendada > $fimSemana) {
+    echo "<script>alert('Erro: Só é permitido agendar dentro da semana atual (segunda a domingo).'); window.location = 'agendas-cadastro.php';</script>";
+    exit;
+}
+
 // Validação de campos obrigatórios 
 if (empty($local) || empty($data) || empty($horario) || empty($horariofin)) {
-    echo "Erro: Campos obrigatórios faltando.";
+    echo "<script>alert('Erro: Campos obrigatórios faltando!'); window.location = 'agendas-cadastro.php';</script>";
     exit;
 }
 
 // Verifica se o usuário está logado
 if (!$usuario_id) {
-    echo "Erro: Usuário não está logado.";
+    echo "<script>alert('Erro: Usuário não está logado.'); window.location = 'agendas-cadastro.php';</script>";
     exit;
 }
 
@@ -44,7 +64,7 @@ $verifica->execute();
 $existe = $verifica->fetchColumn();
 
 if ($existe > 0) {
-    echo "Erro: Este horário já está ocupado para o local selecionado.";
+    echo "<script>alert('Erro: Este horário já está ocupado para o local selecionado.'); window.location = 'agendas-cadastro.php';</script>";
     exit;
 }
 
