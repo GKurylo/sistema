@@ -9,46 +9,33 @@ include("login-validar.php");
 <head>
     <title>Listagem de Agendamentos</title>
     <?php include("app-header.php"); ?>
-    <style>
-        /* Estiliza a rolagem horizontal da tabela */
-        .scroll-box {
-            width: 100%;
-            overflow-x: scroll;
-            white-space: nowrap;
-            border-radius: 8px;
-            scroll-behavior: smooth;
-        }
-
-        /* WebKit (Chrome, Edge, Safari) */
-        .scroll-box::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .scroll-box::-webkit-scrollbar-track {
-            background: #e9ecef;
-            border-radius: 4px;
-        }
-
-        .scroll-box::-webkit-scrollbar-thumb {
-            background: #adb5bd;
-            border-radius: 4px;
-        }
-
-        .scroll-box::-webkit-scrollbar-thumb:hover {
-            background: #6c757d;
-        }
-
-        /* Firefox */
-        .scroll-box {
-            scrollbar-width: thin;
-            scrollbar-color: #adb5bd #e9ecef;
-        }
-    </style>
 </head>
 
 <body>
 
     <?php include("app-lateral.php"); ?>
+    <!-- Modal de Ajuda -->
+    <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="modalAjudaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="modalAjudaLabel">Ajuda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bem-vindo ao listagem de agendamentos!</p>
+                    <ul>
+                        <li>Aqui você encontrara todos os agendamentos.</li>
+                        <li>Clique em (Ver Observação) para ver as observações do agendamento(se houver).</li>
+                        <li>Clique no (botão verde) se pretende cadastrar um novo agendamento.</li>
+                        <li>Clique no (botão amarelo) se pretende editar o agendamento, edite os campo necessários e aperte o (botão verde) Gravar.</li>
+                        <li>Clique no (botão vermelho) se pretende excluir o agendamento.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Conteudo -->
     <div class="content-body" style="min-height: 899px; overflow-x: scroll;">

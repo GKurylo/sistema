@@ -29,6 +29,28 @@ while ($d = $sqlEv->fetch()) {
     <?php include("app-header.php"); ?>
 </head>
 <body>
+    <!-- Modal de Ajuda -->
+    <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="modalAjudaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="modalAjudaLabel">Ajuda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Bem-vindo ao calendário de agendamentos!</h3>
+                    <ul>
+                        <li>Aqui você encontrara o calendário com os agendamentos.</li>
+                        <li>Clique no dia que você quer agendar para selecionar o dia.</li>
+                        <li>Logo após isto clique em um local que pretende cadastrar um novo agendamento.</li>
+                        <li>Depois disso, escolha o horario ou horarios.</li>
+                        <li>Por fim se você quiser clique em (Observação) para adicionar uma observação e/ou em (Salvar Agendamentos) para salvar o agendamento.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <?php require("app-lateral.php");  ?>
     <div class="content-body" style="min-height: 899px;">
