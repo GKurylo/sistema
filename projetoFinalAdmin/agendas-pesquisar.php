@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 include("conexao.php");
 include("login-validar.php");
 ?>
@@ -10,6 +9,41 @@ include("login-validar.php");
 <head>
     <title>Listagem de Agendamentos</title>
     <?php include("app-header.php"); ?>
+    <style>
+        /* Estiliza a rolagem horizontal da tabela */
+        .scroll-box {
+            width: 100%;
+            overflow-x: scroll;
+            white-space: nowrap;
+            border-radius: 8px;
+            scroll-behavior: smooth;
+        }
+
+        /* WebKit (Chrome, Edge, Safari) */
+        .scroll-box::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scroll-box::-webkit-scrollbar-track {
+            background: #e9ecef;
+            border-radius: 4px;
+        }
+
+        .scroll-box::-webkit-scrollbar-thumb {
+            background: #adb5bd;
+            border-radius: 4px;
+        }
+
+        .scroll-box::-webkit-scrollbar-thumb:hover {
+            background: #6c757d;
+        }
+
+        /* Firefox */
+        .scroll-box {
+            scrollbar-width: thin;
+            scrollbar-color: #adb5bd #e9ecef;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,7 +51,7 @@ include("login-validar.php");
     <?php include("app-lateral.php"); ?>
 
     <!-- Conteudo -->
-    <div class="content-body" style="min-height: 899px;">
+    <div class="content-body" style="min-height: 899px; overflow-x: scroll;">
         <div class="container-fluid">
             <div class="row">
                 <div class="card p-2">
@@ -25,7 +59,7 @@ include("login-validar.php");
                     <h1>Listagem de Agendamentos</h1>
                     <p>Verifique os Agandamentos</p>
 
-                    <div class="table-responsive mt-3">
+                    <div class="scroll-box mt-3">
                         <table class="table" id="tabela">
                             <tr class="table-dark text-center">
                                 <th>ID</th>
@@ -44,18 +78,18 @@ include("login-validar.php");
                             ");
                             $sql->execute();
                             while ($dados = $sql->fetch()) {
-                            ?>
+                                ?>
 
                                 <tr class="text-center">
                                     <td><?php echo $dados['id']; ?></td>
                                     <td><?php echo $dados['local']; ?></td>
                                     <td><?php
-                                        $data = new DateTime($dados['data']);
-                                        echo $data->format('d/m/Y'); ?>
+                                    $data = new DateTime($dados['data']);
+                                    echo $data->format('d/m/Y'); ?>
                                     </td>
                                     <td><?php
-                                        $horario = new DateTime($dados['horario']);
-                                        echo $horario->format('H:i:s'); ?>
+                                    $horario = new DateTime($dados['horario']);
+                                    echo $horario->format('H:i:s'); ?>
                                     </td>
                                     <td>
                                         <button class="btn btn-info btn-sm"
@@ -64,8 +98,10 @@ include("login-validar.php");
                                         </button>
                                     </td>
                                     <td class="text-center">
-                                        <a href="agendas-cadastro.php?id=<?php echo $dados['id']; ?>" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="agendas-deletar.php?id=<?php echo $dados['id']; ?>" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
+                                        <a href="agendas-cadastro.php?id=<?php echo $dados['id']; ?>"
+                                            class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="agendas-deletar.php?id=<?php echo $dados['id']; ?>"
+                                            class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
 
@@ -76,7 +112,8 @@ include("login-validar.php");
 
                     <div class="row">
                         <div class="text-center">
-                            <a href="agendas-cadastro.php" class="btn btn-success" style="width: 150px;"><i class="bi bi-plus-circle-fill fs-2"></i></a>
+                            <a href="agendas-cadastro.php" class="btn btn-success" style="width: 150px;"><i
+                                    class="bi bi-plus-circle-fill fs-2"></i></a>
                         </div>
                     </div>
 
@@ -94,7 +131,7 @@ include("login-validar.php");
             alert("Observação:\n" + observacao);
         }
 
-       
+
     </script>
 
 
