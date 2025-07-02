@@ -18,13 +18,37 @@ if ($id) {
 <html lang="pt-BR">
 
 <head>
-    <title>Cadastro de Albuns</title>
+    <title>Cadastro de Álbuns</title>
     <?php include("app-header.php"); ?>
 </head>
 
 <body>
 
     <?php include("app-lateral.php"); ?>
+
+    <!-- Modal de Ajuda -->
+    <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="modalAjudaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="modalAjudaLabel">Ajuda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bem-vindo ao Cadastro de Álbuns!</p>
+                    <ul>
+                        <li>Aqui você poderá cadastrar os Álbuns.</li>
+                        <li>Clique em (nome) para poder escrevar o nome do álbum, se tiver terminado, aperte o (botão verde) Gravar.</li>
+                        <li>Clique no (botão amarelo) se pretende editar o álbum, edite os campo necessários e aperte
+                            o (botão verde) Gravar.</li>
+                        <li>Clique no (botão roxo) se pretende adicionar imagens a este álbum, adicione as imagens e
+                            saia apertando no X.</li>
+                        <li>Clique no (botão vermelho) se pretende excluir o álbum.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Conteudo -->
     <div class="content-body" style="min-height: 899px;">
@@ -43,7 +67,10 @@ if ($id) {
 
                             <div class="offset-2 col-8">
                                 <label for="nome" class="form-label">NOME:</label>
-                                <input type="text" class="form-control" id="nome" name="txtNome">
+                                <input type="text" class="form-control" id="nome" name="txtNome"  value="<?php if ($id) {
+                                echo $dados['nome'];
+                            }
+                            ; ?>">
                             </div>
 
                             <div class="offset-2 col-8">
@@ -59,7 +86,7 @@ if ($id) {
                         </form>
                     </div> <br>
 
-                    <div class="text-center">
+                    <div class="scroll-box mt-3">
                         <table class="table ">
                             <tr class="table-dark">
                                 <th>ID:</th>
@@ -84,7 +111,7 @@ if ($id) {
                                     </td>
                                     <td>
                                         <?php $dataCriacao = new DateTime($dados['data']);
-                                        echo $dataCriacao->format('d/m/Y');  ?>
+                                        echo $dataCriacao->format('d/m/Y'); ?>
                                     </td>
                                     <td>
                                         <?php
@@ -98,7 +125,7 @@ if ($id) {
 
                                     </td>
                                     <td class="text-center">
-                                        <a href="albuns-editar.php?id=<?php echo $dados['id']; ?>"
+                                        <a href="albuns-cadastro.php?id=<?php echo $dados['id']; ?>"
                                             class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
 
                                         <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal"
@@ -141,6 +168,15 @@ if ($id) {
 
 
     <?php include("app-script.php"); ?>
+    <?php
+    if ($id) {
+    ?>
+        <script>
+            $("#status").val("<?php echo $dados["status"] ?>");
+        </script>
+    <?php
+    }
+    ?>
 
     <script>
         var modalFotos = document.getElementById('modalFotos');

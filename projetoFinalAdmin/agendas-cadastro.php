@@ -30,6 +30,28 @@ if ($id) {
 
     <?php include("app-lateral.php"); ?>
 
+    <!-- Modal de Ajuda -->
+    <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="modalAjudaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="modalAjudaLabel">Ajuda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bem-vindo ao Cadastro de agendamentos!</p>
+                    <ul>
+                        <li>Aqui você poderá cadastrar os agendamentos.</li>
+                        <li>Clique em (SEM LOCAL) para selecionar um local.</li>
+                        <li>Clique em (dd/mm/aaaa) para selecionar uma data para agendar.</li>
+                        <li>Clique em (selecione os horários) para selecionar um ou mais horários do agendamento.</li>
+                        <li>clique em (Observação) caso queria adicionar uma observação, se tiver terminado de colocar todas as informações, aperte o (botão verde) Gravar.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Conteudo -->
     <div class="content-body" style="min-height: 899px;">
         <div class="container-fluid">

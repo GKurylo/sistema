@@ -4,10 +4,12 @@ include("conexao.php");
 $usuario = $_POST["txtUsuario"];
 $senha = $_POST["txtSenha"];
 
+$senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
 // Usando parâmetros nomeados para evitar SQL Injection
 $sql = $conn->prepare("SELECT * FROM usuarios WHERE usuario = :usuario AND senha = :senha");
 $sql->bindParam(':usuario', $usuario);
-$sql->bindParam(':senha', $senha);
+$sql->bindParam(':senha', $senhaHash);
 $sql->execute();
 
 if ($sql->rowCount() > 0) {

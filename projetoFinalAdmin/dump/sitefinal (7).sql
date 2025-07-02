@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01/07/2025 às 21:29
+-- Tempo de geração: 02/07/2025 às 21:42
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -63,7 +63,7 @@ CREATE TABLE `albuns` (
 --
 
 INSERT INTO `albuns` (`id`, `nome`, `data`, `status`) VALUES
-(1, 'Fotos', '2025-06-30', 1);
+(1, 'Fotos', '2025-07-02', 1);
 
 -- --------------------------------------------------------
 
@@ -170,7 +170,7 @@ CREATE TABLE `horarios` (
 --
 
 INSERT INTO `horarios` (`secretaria`, `aulas`) VALUES
-('<strong>Segunda a Sexta:</strong><br />\r\n8:00&nbsp;<strong>&agrave;s</strong> 17:00<br />\r\n<strong>S&aacute;bado:</strong><br />\r\n8:00&nbsp;<strong>&agrave;s </strong>12:00<br />\r\n<strong>Domingo:</strong><br />\r\nFechado<br />\r\n<br />\r\n&nbsp;', '<strong>Manh&atilde;:</strong><br />\r\n7:30 <strong>&aacute;s </strong>11:00<br />\r\n<strong>Tarde:</strong><br />\r\n13:00&nbsp;&aacute;s&nbsp;16:30<br />\r\n<strong>Noite:</strong><br />\r\n18:40&nbsp;&aacute;s 22:10');
+('<strong>Secretaria<br />\r\nSegunda a Sexta:</strong><br />\r\n8:00&nbsp;<strong>&agrave;s</strong> 17:00<br />\r\n<strong>S&aacute;bado:</strong><br />\r\n8:00&nbsp;<strong>&agrave;s </strong>12:00<br />\r\n<strong>Domingo:</strong><br />\r\nFechado<br />\r\n<br />\r\n&nbsp;', '<strong>Aulas<br />\r\nManh&atilde;:</strong><br />\r\n7:30 <strong>&aacute;s </strong>11:50<br />\r\n<strong>Tarde:</strong><br />\r\n13:00&nbsp;<strong>&aacute;s</strong>&nbsp;17:20<br />\r\n<strong>Noite:</strong><br />\r\n18:40&nbsp;<strong>&aacute;s</strong> 23:00');
 
 -- --------------------------------------------------------
 
@@ -784,7 +784,7 @@ ALTER TABLE `agendas`
 -- AUTO_INCREMENT de tabela `albuns`
 --
 ALTER TABLE `albuns`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `albuns_imagens`
@@ -862,7 +862,7 @@ ALTER TABLE `pma__savedsearches`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restrições para tabelas despejadas

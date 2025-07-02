@@ -119,7 +119,7 @@ if ($id) {
                     </div>
 
                     <!-- Lista de notícias cadastradas -->
-                    <div class="text-center mt-4">
+                    <div class="scroll-box mt-3">
                         <table class="table">
                             <tr class="table-dark">
                                 <th>ID:</th>

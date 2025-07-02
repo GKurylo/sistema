@@ -15,7 +15,7 @@ if ($id) {
 <html lang="pt-BR">
 
 <head>
-    <title>INDEX</title>
+    <title>Cadastro de Cursos</title>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.5.2/dist/select2-bootstrap4.min.css"
         rel="stylesheet" />
@@ -24,6 +24,31 @@ if ($id) {
 
 <body>
     <?php include("app-lateral.php"); ?>
+
+    <!-- Modal de Ajuda -->
+    <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="modalAjudaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="modalAjudaLabel">Ajuda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Bem-vindo ao Listagem e cadastro de Cursos!</h3>
+                    <ul>
+                        <li>Aqui você encontrara o cadastro e logo depois a listagem com os Cursos.</li>
+                        <li>Se pretende cadastrar um novo Curso, preencha todos os campos e clique no (botão verde)
+                            Gravar.</li>
+                        <li>Clique no (botão amarelo) se pretende editar o Curso, edite os campo necessários e aperte
+                            o (botão verde) Gravar.</li>
+                        <li>Clique no (botão roxo) se pretende adicionar imagens a este Curso, adicione as imagens e
+                            saia apertando no X.</li>
+                        <li>Clique no (botão vermelho) se pretende excluir o Curso.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="content-body" style="min-height: 899px;">
         <div class="container-fluid">
@@ -144,7 +169,7 @@ if ($id) {
                     </div><br>
 
                     <!-- Tabela de cursos -->
-                    <div class="text-center">
+                    <div class="scroll-box mt-3">
                         <table class="table">
                             <tr class="table-dark">
                                 <th>ID:</th>

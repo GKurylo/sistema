@@ -46,12 +46,12 @@ include("login-validar.php");
                     <h1>Listagem de Locais</h1>
                     <p>Verifique todos os Locais</p>
                     
-                    <div class="table-responsive mt-3">
+                    <div class="scroll-box mt-3">
                         <table class="table">
                             <tr class="table-dark text-center">
                                 <th>ID</th>
                                 <th>NOME</th>
-                                <th >STATUS</th>
+                                <th>STATUS</th>
                                 <th>OPÇÕES</th>
                             </tr>
 
