@@ -63,9 +63,7 @@ if ($id) {
                                                                         } ?>">
                             <div class="col-12 col-md-4 mt-3">
                                 <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="txtNome" value="<?php if ($id) {
-                                                                                                            echo $dados["nome"];
-                                                                                                        } ?>">
+                                <input type="text" class="form-control" id="nome" name="txtNome">
                             </div>
                             <?php if (!$id) { ?>
                             <div class="col-12 col-md-4 mt-3">

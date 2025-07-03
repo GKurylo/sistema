@@ -9,13 +9,13 @@ $usuario = $_POST["txtUsuario"];
 $cargo = $_POST["txtCargo"];
 $status = $_POST["txtStatus"];
 
-$senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+$senhaHash = md5($senha);
 
 if (!$nome) {
     echo "<script>alert('Você deve escrever um nome válido.'); history.back();</script>";
     exit;
 } else {
-    if (!$senhaHash) {
+    if (!$id && !$senhaHash) {
         echo "<script>alert('Você deve escrever uma senha válido.'); history.back();</script>";
         exit; 
     } else {

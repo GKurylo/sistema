@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02/07/2025 às 21:42
+-- Tempo de geração: 03/07/2025 às 21:56
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -29,21 +29,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `agendas` (
   `id` int(11) NOT NULL,
-  `usuario_id` int(11) DEFAULT NULL,
-  `local_id` int(11) DEFAULT NULL,
-  `data` date DEFAULT NULL,
-  `arquivo` text DEFAULT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `local_id` int(11) NOT NULL,
+  `data` date NOT NULL,
+  `horario` time NOT NULL,
+  `horariofin` time NOT NULL,
   `observacao` text DEFAULT NULL,
-  `horario` time DEFAULT NULL,
-  `horariofin` time NOT NULL
+  `criado_em` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `agendas`
 --
 
-INSERT INTO `agendas` (`id`, `usuario_id`, `local_id`, `data`, `arquivo`, `observacao`, `horario`, `horariofin`) VALUES
-(4, 1, 1, '2025-07-01', NULL, '', '22:10:00', '23:00:00');
+INSERT INTO `agendas` (`id`, `usuario_id`, `local_id`, `data`, `horario`, `horariofin`, `observacao`, `criado_em`) VALUES
+(1, 4, 1, '2025-07-04', '07:30:00', '08:20:00', '', '2025-07-03 18:24:58');
 
 -- --------------------------------------------------------
 
@@ -573,7 +573,7 @@ CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) DEFAULT NULL,
   `usuario` varchar(150) DEFAULT NULL,
-  `senha` varchar(20) DEFAULT NULL,
+  `senha` varchar(32) DEFAULT NULL,
   `cargo` tinyint(11) DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -583,9 +583,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha`, `cargo`, `status`) VALUES
-(1, 'Administrador', 'adm@gmail.com', 'admin', 1, 1),
-(2, 'Gestor', 'gestor@gmail.com', 'gestor', 2, 1),
-(3, 'Professor', 'professor@gmail.com', 'professor', 0, 1);
+(1, 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1, 1),
+(3, 'professor', 'professor@gmail.com', '3f9cd3c7b11eb1bae99dddb3d05da3c5', 0, 1),
+(4, 'gestor', 'gestor@gmail.com', 'a55607442fca264cf37e935503d646c2', 2, 1);
 
 --
 -- Índices para tabelas despejadas
@@ -778,7 +778,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendas`
 --
 ALTER TABLE `agendas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `albuns`
@@ -862,7 +862,7 @@ ALTER TABLE `pma__savedsearches`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para tabelas despejadas
