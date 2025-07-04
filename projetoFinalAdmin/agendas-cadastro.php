@@ -43,6 +43,7 @@ if ($id) {
                     <ul>
                         <li>Aqui você poderá cadastrar os agendamentos.</li>
                         <li>Clique em (SEM LOCAL) para selecionar um local.</li>
+                        <li>Clique em (SEM USUÁRIO) para selecionar um usuário ou então selecionar o seu proprio.</li>
                         <li>Clique em (dd/mm/aaaa) para selecionar uma data para agendar.</li>
                         <li>Clique em (selecione os horários) para selecionar um ou mais horários do agendamento.</li>
                         <li>clique em (Observação) caso queria adicionar uma observação, se tiver terminado de colocar todas as informações, aperte o (botão verde) Gravar.</li>
@@ -86,7 +87,24 @@ if ($id) {
                                             ?>
                                         </select>
                                     </div>
+
+                                    <!-- Usuário -->
+                                    <div class="col-md-3">
+                                        <label for="usuarios">Usuário:</label>
+                                        <select name="txtUsuario" id="usuarios" class="form-control">
+                                            <option value="0" selected>SEM USUÁRIO</option>
+                                            <?php
+                                            $sqlUsuario = $conn->prepare("SELECT * FROM usuarios WHERE status = 1 AND cargo != 2");
+                                            $sqlUsuario->execute();
+                                            while ($dadosUsuario = $sqlUsuario->fetch()) {
+                                                $selected = ($id && $dados["Usuario_id"] == $dadosUsuario["id"]) ? 'selected' : '';
+                                                echo "<option value='{$dadosUsuario["id"]}' $selected>{$dadosUsuario["nome"]}</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
                                     
+                                    <!-- COLUNA DIREITA: -->
                                     <!-- Data -->
                                     <div class="col-md-3">
                                         <label for="data">Data:</label>
@@ -94,8 +112,8 @@ if ($id) {
                                             echo date('Y-m-d', strtotime($dados['data'])); ?>">
                                     </div>
 
-                                    <!-- COLUNA DIREITA: -->
-                                    <div class="col-md-6 d-flex flex-column justify-content-start" id="modalHorarios">
+                                    <!-- horário -->
+                                    <div class="col-md-3 d-flex flex-column justify-content-start" id="modalHorarios">
                                         <label for="horariosSelect">Horários:</label>
                                         <select class="form-control h-100" id="horariosSelect" name="txtHorario"
                                             multiple>

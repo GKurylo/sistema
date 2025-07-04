@@ -8,6 +8,8 @@ $local = $_POST['txtLocal'] ?? '';
 $data = $_POST['txtData'] ?? '';
 $horario = $_POST['txtHorario'] ?? '';
 $id = $_POST['txtid'] ?? '';
+$usuarios = $_POST['txtUsuario'] ??'';
+
 
 // Converter data de dd/mm/yyyy para yyyy-mm-dd
 if (strpos($data, '/') !== false) {
@@ -25,6 +27,7 @@ $hoje = new DateTime();
 $dataAgendada = new DateTime($data);
 
 if ($dataAgendada < $hoje->setTime(0, 0)) {
+    http_response_code(400);
     echo "Não é possível agendar para datas passadas.";
     exit;
 }
@@ -36,12 +39,13 @@ $fimSemana = new DateTime(); // hoje
 $fimSemana->modify('sunday this week')->setTime(23, 59, 59); // domingo
 
 if ($dataAgendada < $inicioSemana || $dataAgendada > $fimSemana) {
+    http_response_code(400);
     echo "Só é permitido agendar dentro da semana atual (segunda a domingo).";
     exit;
 }
 
 // Validação de campos obrigatórios 
-if (empty($local) || empty($data) || empty($horario) || empty($horariofin)) {
+if ($local === "0" || $usuarios === "0" || empty($data) || empty($horario) || empty($horariofin)) {
     echo "<script>alert('Erro: Campos obrigatórios faltando!'); window.location = 'agendas-cadastro.php';</script>";
     exit;
 }
@@ -51,6 +55,8 @@ if (!$usuario_id) {
     echo "<script>alert('Erro: Usuário não está logado.'); window.location = 'agendas-cadastro.php';</script>";
     exit;
 }
+
+$usuario_id = !empty($usuarios) ? $usuarios : ($_SESSION['id'] ?? null);
 
 // Verifica se o horário já está ocupado
 $verifica = $conn->prepare("
@@ -64,7 +70,8 @@ $verifica->execute();
 $existe = $verifica->fetchColumn();
 
 if ($existe > 0) {
-    echo "<script>alert('Erro: Este horário já está ocupado para o local selecionado.'); window.location = 'agendas-cadastro.php';</script>";
+    http_response_code(400);
+    echo "Este horário já está ocupado para o local selecionado.";
     exit;
 }
 
