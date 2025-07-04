@@ -8,9 +8,9 @@ $dados = [
     'img2' => '',
     'img3' => ''
 ];
-    $sql = $conn->prepare("SELECT * FROM slides");
-    $sql->execute();
-    $dados = $sql->fetch();
+$sql = $conn->prepare("SELECT * FROM slides");
+$sql->execute();
+$dados = $sql->fetch();
 
 ?>
 <!DOCTYPE html>
@@ -24,6 +24,31 @@ $dados = [
 <body>
 
     <?php include("app-lateral.php"); ?>
+
+    <!-- Modal de Ajuda -->
+    <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="modalAjudaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="modalAjudaLabel">Ajuda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Bem-vindo ao Editar Slide!</h3>
+                    <ul>
+                        <li>Aqui você encontrara um espaço para .</li>
+                        <li>Se pretende cadastrar uma nova Notícias, preencha todos os campos e clique no (botão verde)
+                            Gravar.</li>
+                        <li>Clique no (botão amarelo) se pretende editar a Notícias, edite os campo necessários e aperte
+                            o (botão verde) Gravar.</li>
+                        <li>Clique no (botão roxo) se pretende adicionar imagens a esta Notícias, adicione as imagens e
+                            saia apertando no X.</li>
+                        <li>Clique no (botão vermelho) se pretende excluir a Notícias.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Conteudo -->
     <div class="content-body" style="min-height: 899px;">

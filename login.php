@@ -1,6 +1,20 @@
 <?php
 include('conexao.php');
 include_once('includes/header.php');
+// Exibe o alert baseado no erro passado pela URL
+if (isset($_GET['erro'])) {
+    $erro = $_GET['erro'];
+
+    // Mensagens de erro
+    $mensagens = [
+        'senha' => 'Senha incorreta. Tente novamente!',
+        'usuario' => 'Usuário não encontrado. Verifique seu nome de usuário.',
+    ];
+
+    // Atribui a mensagem de erro de acordo com o parâmetro passado na URL
+    $mensagemErro = isset($mensagens[$erro]) ? $mensagens[$erro] : 'Erro desconhecido.';
+    echo "<script>alert('$mensagemErro');</script>";
+}
 ?>
 
 <!-- Banner da Página -->

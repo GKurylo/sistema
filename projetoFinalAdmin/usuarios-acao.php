@@ -9,11 +9,13 @@ $usuario = $_POST["txtUsuario"];
 $cargo = $_POST["txtCargo"];
 $status = $_POST["txtStatus"];
 
+$senhaHash = md5($senha);
+
 if (!$nome) {
     echo "<script>alert('Você deve escrever um nome válido.'); history.back();</script>";
     exit;
 } else {
-    if (!$senha) {
+    if (!$id && !$senhaHash) {
         echo "<script>alert('Você deve escrever uma senha válido.'); history.back();</script>";
         exit; 
     } else {
@@ -23,7 +25,7 @@ if (!$nome) {
         } else {
             if (!$id) {
         $sql = $conn->prepare("INSERT INTO usuarios SET nome='$nome',
-                                                     senha='$senha',
+                                                     senha='$senhaHash',
                                                      usuario='$usuario',
                                                      cargo='$cargo',
                                                      status='$status'
@@ -31,7 +33,6 @@ if (!$nome) {
         $sql->execute();
             } else {
         $sql = $conn->prepare("UPDATE usuarios SET nome='$nome',
-                                                    senha='$senha',
                                                     usuario='$usuario',
                                                     cargo='$cargo',
                                                     status='$status'

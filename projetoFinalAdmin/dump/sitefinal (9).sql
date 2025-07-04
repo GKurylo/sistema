@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01/07/2025 às 21:29
+-- Tempo de geração: 04/07/2025 às 21:41
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -29,21 +29,28 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `agendas` (
   `id` int(11) NOT NULL,
-  `usuario_id` int(11) DEFAULT NULL,
-  `local_id` int(11) DEFAULT NULL,
-  `data` date DEFAULT NULL,
-  `arquivo` text DEFAULT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `local_id` int(11) NOT NULL,
+  `data` date NOT NULL,
+  `horario` time NOT NULL,
+  `horariofin` time NOT NULL,
   `observacao` text DEFAULT NULL,
-  `horario` time DEFAULT NULL,
-  `horariofin` time NOT NULL
+  `criado_em` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `agendas`
 --
 
-INSERT INTO `agendas` (`id`, `usuario_id`, `local_id`, `data`, `arquivo`, `observacao`, `horario`, `horariofin`) VALUES
-(4, 1, 1, '2025-07-01', NULL, '', '22:10:00', '23:00:00');
+INSERT INTO `agendas` (`id`, `usuario_id`, `local_id`, `data`, `horario`, `horariofin`, `observacao`, `criado_em`) VALUES
+(4, 1, 1, '2025-07-04', '08:20:00', '09:10:00', '', '2025-07-04 13:57:20'),
+(5, 3, 2, '2025-07-04', '07:30:00', '08:20:00', '', '2025-07-04 17:07:09'),
+(6, 3, 2, '2025-07-04', '08:20:00', '09:10:00', '', '2025-07-04 17:07:09'),
+(7, 3, 2, '2025-07-04', '09:10:00', '10:00:00', '', '2025-07-04 17:07:09'),
+(8, 3, 3, '2025-07-05', '07:30:00', '08:20:00', '', '2025-07-04 17:07:22'),
+(9, 3, 3, '2025-07-05', '08:20:00', '09:10:00', '', '2025-07-04 17:07:23'),
+(10, 1, 1, '2025-07-04', '07:30:00', '08:20:00', '', '2025-07-04 17:08:03'),
+(11, 3, 8, '2025-07-04', '07:30:00', '08:20:00', 'd', '2025-07-04 19:29:23');
 
 -- --------------------------------------------------------
 
@@ -63,7 +70,7 @@ CREATE TABLE `albuns` (
 --
 
 INSERT INTO `albuns` (`id`, `nome`, `data`, `status`) VALUES
-(1, 'Fotos', '2025-06-30', 1);
+(1, 'Fotos', '2025-07-02', 1);
 
 -- --------------------------------------------------------
 
@@ -170,7 +177,7 @@ CREATE TABLE `horarios` (
 --
 
 INSERT INTO `horarios` (`secretaria`, `aulas`) VALUES
-('<strong>Segunda a Sexta:</strong><br />\r\n8:00&nbsp;<strong>&agrave;s</strong> 17:00<br />\r\n<strong>S&aacute;bado:</strong><br />\r\n8:00&nbsp;<strong>&agrave;s </strong>12:00<br />\r\n<strong>Domingo:</strong><br />\r\nFechado<br />\r\n<br />\r\n&nbsp;', '<strong>Manh&atilde;:</strong><br />\r\n7:30 <strong>&aacute;s </strong>11:00<br />\r\n<strong>Tarde:</strong><br />\r\n13:00&nbsp;&aacute;s&nbsp;16:30<br />\r\n<strong>Noite:</strong><br />\r\n18:40&nbsp;&aacute;s 22:10');
+('<strong>Secretaria<br />\r\nSegunda a Sexta:</strong><br />\r\n8:00&nbsp;<strong>&agrave;s</strong> 17:00<br />\r\n<strong>S&aacute;bado:</strong><br />\r\n8:00&nbsp;<strong>&agrave;s </strong>12:00<br />\r\n<strong>Domingo:</strong><br />\r\nFechado<br />\r\n<br />\r\n&nbsp;', '<strong>Aulas<br />\r\nManh&atilde;:</strong><br />\r\n7:30 <strong>&aacute;s </strong>11:50<br />\r\n<strong>Tarde:</strong><br />\r\n13:00&nbsp;<strong>&aacute;s</strong>&nbsp;17:20<br />\r\n<strong>Noite:</strong><br />\r\n18:40&nbsp;<strong>&aacute;s</strong> 23:00');
 
 -- --------------------------------------------------------
 
@@ -573,7 +580,7 @@ CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) DEFAULT NULL,
   `usuario` varchar(150) DEFAULT NULL,
-  `senha` varchar(20) DEFAULT NULL,
+  `senha` varchar(32) DEFAULT NULL,
   `cargo` tinyint(11) DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -583,9 +590,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha`, `cargo`, `status`) VALUES
-(1, 'Administrador', 'adm@gmail.com', 'admin', 1, 1),
-(2, 'Gestor', 'gestor@gmail.com', 'gestor', 2, 1),
-(3, 'Professor', 'professor@gmail.com', 'professor', 0, 1);
+(1, 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1, 1),
+(3, 'professor', 'professor@gmail.com', '3f9cd3c7b11eb1bae99dddb3d05da3c5', 0, 1),
+(4, 'gestor', 'gestor@gmail.com', 'a55607442fca264cf37e935503d646c2', 2, 1);
 
 --
 -- Índices para tabelas despejadas
@@ -778,13 +785,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `agendas`
 --
 ALTER TABLE `agendas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `albuns`
 --
 ALTER TABLE `albuns`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `albuns_imagens`

@@ -16,6 +16,27 @@ include("login-validar.php");
 
     <?php include("app-lateral.php"); ?>
 
+    <!-- Modal de Ajuda -->
+    <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="modalAjudaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="modalAjudaLabel">Ajuda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Bem-vindo ao Listagem de Locais!</h3>
+                    <ul>
+                        <li>Aqui você encontrara a listagem com os Locais.</li>
+                        <li>Clique no (botão verde) se pretende cadastrar um novo Local.</li>
+                        <li>Clique no (botão amarelo) se pretende editar o Local, edite os campo necessários e aperte o (botão verde) Gravar.</li>
+                        <li>Clique no (botão vermelho) se pretende excluir o Local.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Conteudo -->
     <div class="content-body" style="min-height: 899px;">
         <div class="container-fluid">
@@ -25,12 +46,12 @@ include("login-validar.php");
                     <h1>Listagem de Locais</h1>
                     <p>Verifique todos os Locais</p>
                     
-                    <div class="table-responsive mt-3">
+                    <div class="scroll-box mt-3">
                         <table class="table">
                             <tr class="table-dark text-center">
                                 <th>ID</th>
                                 <th>NOME</th>
-                                <th >STATUS</th>
+                                <th>STATUS</th>
                                 <th>OPÇÕES</th>
                             </tr>
 

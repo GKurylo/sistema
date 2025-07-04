@@ -73,7 +73,7 @@ if ($usuario_id) {
 
 	<?php
 	// Exibe menu conforme cargo
-	if ($cargo === 0) {
+	if ($cargo == 0) {
 		// Apenas abas restritas: Início e Sair
 		?>
 		<div class="deznav">

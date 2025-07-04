@@ -24,6 +24,29 @@ if ($id) {
 
     <?php include("app-lateral.php"); ?>
 
+     <!-- Modal de Ajuda -->
+    <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="modalAjudaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="modalAjudaLabel">Ajuda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Bem-vindo ao Cadastro de Usuários!</h3>
+                    <ul>
+                        <li>Aqui você encontrara o Cadastro de usuários.</li>
+                        <li>Clique em (nome) e escreva o nome.</li>
+                        <li>Clique em (senha) e escreva a senha.</li>
+                        <li>Clique no (email) e escreva o email.</li>
+                        <li>Clique no (cargo) para selecionar se será professor, administrador ou gestor.</li>
+                        <li>Aperte o (botão verde) Gravar.</li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Conteudo -->
     <div class="content-body" style="min-height: 899px;">
         <div class="container-fluid">
@@ -40,16 +63,17 @@ if ($id) {
                                                                         } ?>">
                             <div class="col-12 col-md-4 mt-3">
                                 <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="txtNome" value="<?php if ($id) {
-                                                                                                            echo $dados["nome"];
-                                                                                                        } ?>">
+                                <input type="text" class="form-control" id="nome" name="txtNome">
                             </div>
+                            <?php if (!$id) { ?>
                             <div class="col-12 col-md-4 mt-3">
                                 <label for="senha">Senha</label>
                                 <input type="password" class="form-control" id="senha" name="txtSenha" value="<?php if ($id) {
                                                                                                                     echo $dados["senha"];
                                                                                                                 } ?>">
                             </div>
+                            <?php } ?>
+
                             <div class="col-12 col-md-4 mt-3">
                                 <label for="usuario">Email</label>
                                 <input type="email" class="form-control" id="usuario" name="txtUsuario" value="<?php if ($id) {
