@@ -122,13 +122,13 @@ if ($id) {
                     <div class="scroll-box mt-3">
                         <table class="table">
                             <tr class="table-dark">
-                                <th>ID:</th>
-                                <th>CAPA:</th>
-                                <th>TÍTULO:</th>
-                                <th>RESUMO:</th>
-                                <th>TEM DESTAQUE:</th>
-                                <th>STATUS:</th>
-                                <th>OPÇÕES:</th>
+                                <th class="text-center">ID:</th>
+                                <th class="text-center">CAPA:</th>
+                                <th class="text-center">TÍTULO:</th>
+                                <th class="text-center">RESUMO:</th>
+                                <th class="text-center">TEM DESTAQUE:</th>
+                                <th class="text-center">STATUS:</th>
+                                <th class="text-center">OPÇÕES:</th>
                             </tr>
 
                             <?php
@@ -137,14 +137,14 @@ if ($id) {
                             while ($dados = $sql->fetch()) {
                             ?>
                                 <tr>
-                                    <td><?php echo $dados['id']; ?></td>
+                                    <td class="text-center"><?php echo $dados['id']; ?></td>
                                     <td style="width: 150px;">
                                         <img src='../uploads/<?php echo $dados['imagem'] ?? ''; ?>' class='imgBorda' height='120px'>
                                     </td>
-                                    <td><?php echo $dados['titulo']; ?></td>
-                                    <td><?php echo $dados['resumo']; ?></td>
-                                    <td><?php echo $dados['destaque'] == 1 ? 'Sim' : 'Não'; ?></td>
-                                    <td><?php echo $dados['status'] == 1 ? 'Ativo' : 'Bloqueado'; ?></td>
+                                    <td class="text-center"><?php echo $dados['titulo']; ?></td>
+                                    <td class="text-center"><?php echo $dados['resumo']; ?></td>
+                                    <td class="text-center"><?php echo $dados['destaque'] == 1 ? 'Sim' : 'Não'; ?></td>
+                                    <td class="text-center"><?php echo $dados['status'] == 1 ? 'Ativo' : 'Bloqueado'; ?></td>
                                     <td class="text-center">
                                         <a href="noticias-cadastro.php?id=<?php echo $dados['id']; ?>" class="btn btn-warning btn-sm">
                                             <i class="fa-solid fa-pen-to-square"></i>

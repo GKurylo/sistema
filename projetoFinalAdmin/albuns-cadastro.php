@@ -88,7 +88,7 @@ if ($id) {
 
                     <div class="scroll-box mt-3">
                         <table class="table ">
-                            <tr class="table-dark">
+                            <tr class="table-dark text-center">
                                 <th>ID:</th>
                                 <th>NOME:</th>
                                 <th>CRIADO EM:</th>
@@ -102,7 +102,7 @@ if ($id) {
                             while ($dados = $sql->fetch()) {
                                 ?>
 
-                                <tr>
+                                <tr class="text-center">
                                     <td>
                                         <?php echo $dados['id'] ?>
                                     </td>

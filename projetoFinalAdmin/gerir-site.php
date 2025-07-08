@@ -7,13 +7,35 @@ include("login-validar.php");
 <html lang="pt-BR">
 
 <head>
-	<title>INDEX</title>
+	<title>Gerenciador do site</title>
 	<?php include("app-header.php"); ?>
 </head>
 
 <body>
 
 	<?php include("app-lateral.php"); ?>
+
+	<!-- Modal de Ajuda -->
+    <div class="modal fade" id="modalAjuda" tabindex="-1" aria-labelledby="modalAjudaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="modalAjudaLabel">Ajuda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Bem-vindo ao Gerenciador do site!</h3>
+                    <ul>
+                        <li>Clique no (botão verde)"Adicionar Notícias" se pretende cadastrar uma nova notícias.</li>
+                        <li>Clique no (botão verde)"Adicionar Notícias" se pretende cadastrar um novo cursos.</li>
+						<li>Clique no (botão verde)"Adicionar Notícias" se pretende cadastrar um novo álbuns.</li>
+						<li>Clique no (botão verde)"Adicionar Notícias" se pretende editar os horários.</li>
+						<li>Clique no (botão verde)"Adicionar Notícias" se pretende cadastrar uma nova notícias.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
 	<!-- Conteudo -->
 	<div class="content-body" style="min-height: 899px;">

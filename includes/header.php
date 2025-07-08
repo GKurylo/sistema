@@ -8,8 +8,9 @@
     <link rel="shortcut icon" type="image/jpg" href="projetoFinalAdmin/images/logo.png">
 
     <!-- Bootstrap 5 CSS -->
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS personalizado -->
@@ -26,7 +27,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4/dist/fancybox.umd.js"></script>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- sofi -->
     <div class="container ">
         <div class="row align-items-center py-2">
@@ -41,49 +42,59 @@
             </div>
             <div class="col-md-2 text-center text-md-end">
                 <a href="http://www.diaadia.pr.gov.br/">
-                <!--<img src="img/Parana.png" alt="Brasão" class="img-fluid" style="max-height: 80px;">-->
+                    <!--<img src="img/Parana.png" alt="Brasão" class="img-fluid" style="max-height: 80px;">-->
                 </a>
             </div>
         </div>
     </div>
-    <!-- sofi -->
+
+    <?php
+    $currentPage = basename($_SERVER['PHP_SELF']);
+    ?>
+
+
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary-custom sticky-top">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="./">Início</a>
+                        <a class="nav-link px-4 <?php echo ($currentPage == 'index.php') ? 'active-link' : ''; ?>"
+                            href="./">Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="instituicao.php">Instituição</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle px-4" href="cursos.php" id="navbarDropdownCursos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Cursos
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="cursos.php">Todos os Cursos</a></li>
-                        </ul>
+                        <a class="nav-link px-4 <?php echo ($currentPage == 'instituicao.php') ? 'active-link' : ''; ?>"
+                            href="instituicao.php">Instituição</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="noticias.php">Notícias</a>
+                        <a class="nav-link px-4 <?php echo ($currentPage == 'cursos.php') ? 'active-link' : ''; ?>"
+                            href="cursos.php">Cursos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link px-4 <?php echo ($currentPage == 'noticias.php') ? 'active-link' : ''; ?>"
+                            href="noticias.php">Notícias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="contato.php">Contato</a>
+                        <a class="nav-link px-4 <?php echo ($currentPage == 'contato.php') ? 'active-link' : ''; ?>"
+                            href="contato.php">Contato</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-4" href="login.php">
+                        <a class="nav-link px-4 <?php echo ($currentPage == 'login.php') ? 'active-link' : ''; ?>"
+                            href="login.php">
                             <i class="fas fa-user-lock"></i> Admin
                         </a>
                     </li>
                 </ul>
             </div>
-            <form class="d-none d-lg-flex ms-auto">
+            <form action="noticias.php" method="get" class="d-none d-lg-flex ms-auto">
                 <div class="input-group">
-                    <input class="form-control form-control-sm" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <input class="form-control form-control-sm" name="busca" type="search" placeholder="Buscar"
+                        aria-label="Buscar">
                     <button class="btn btn-outline-light btn-sm" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
@@ -93,4 +104,4 @@
     </nav>
 
 
-    <main class="container-fluid px-0">
+    <main class="flex-grow-1">

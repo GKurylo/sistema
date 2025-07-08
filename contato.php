@@ -31,13 +31,16 @@ $dados = $sql->fetch();
 
                     <!-- Ícones sociais -->
                     <div class="social-icons mt-4">
-                        <a href="#" class="text-dark fs-4 mx-2" aria-label="Instagram"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-dark fs-4 mx-2" aria-label="Facebook"><i
-                                class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-dark fs-4 mx-2" aria-label="WhatsApp"><i
-                                class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="text-dark fs-4 mx-2" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.instagram.com/ceeplaranjeiras?igsh=MXB6dzM3bDh1aml0Nw=="
+                            class="text-dark fs-4 mx-2" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/ceeplaranjeirasdosul" class="text-dark fs-4 mx-2"
+                            aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/554236352397?text=Olá%20quero%20mais%20informações!"
+                            class="text-dark fs-4 mx-2" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ljsceeplaranjeiras@seed.pr.gov.br"
+                            class="text-dark fs-5 mx-2">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -48,7 +51,7 @@ $dados = $sql->fetch();
             <div class="news-card text-center p-4" style="background-color: #fff;">
                 <div class="card-body">
                     <h3 class="card-title text-center mb-4">Fale conosco</h3>
-                    <form action="contatos.php" method="POST" id="contact-form">
+                    <form action="contato-acao.php" method="POST" id="contact-form">
                         <div class="mb-3">
                             <label for="name" class="form-label">Seu Nome</label>
                             <input type="text" class="form-control" id="name" name="name" required />

@@ -2,11 +2,16 @@
 include("conexao.php");
 include("login-validar.php");
 
-// Prepara eventos para o FullCalendar
 $eventos = [];
-$sqlEv = $conn->prepare("SELECT agendas.*, locais.nome AS local, locais.cor FROM agendas 
-LEFT JOIN locais ON locais.id = agendas.local_id 
-WHERE agendas.usuario_id = $_SESSION[id];");
+if ($_SESSION['id'] == 1) {
+    $sqlEv = $conn->prepare("SELECT agendas.*, locais.nome AS local, locais.cor FROM agendas 
+        LEFT JOIN locais ON locais.id = agendas.local_id");
+} else {
+    $sqlEv = $conn->prepare("SELECT agendas.*, locais.nome AS local, locais.cor FROM agendas 
+        LEFT JOIN locais ON locais.id = agendas.local_id 
+        WHERE agendas.usuario_id = :usuario_id");
+    $sqlEv->bindValue(":usuario_id", $_SESSION['id']);
+}
 $sqlEv->execute();
 $sqlEv->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -19,6 +24,7 @@ while ($d = $sqlEv->fetch()) {
         'color' => $d['cor']
     ];
 }
+
 ?>
 
 <!DOCTYPE html>

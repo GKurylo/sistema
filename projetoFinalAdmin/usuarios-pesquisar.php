@@ -29,7 +29,7 @@ include("login-validar.php");
                     <ul>
                         <li>Aqui você encontrara a listagem com os usuários.</li>
                         <li>Clique no (botão verde) se pretende cadastrar um novo usuários.</li>
-                        <li>Clique no (botão amarelo) se pretende editar o usuários, edite os campo necessários e aperte o (botão verde) Gravar.</li>
+                        <li>Clique no (botão amarelo) se pretende editar o usuários(não podendo editar senha!), edite os campo necessários e aperte o (botão verde) Gravar.</li>
                         <li>Clique no (botão vermelho) se pretende excluir o usuários.</li>
                     </ul>
                 </div>

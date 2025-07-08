@@ -172,15 +172,15 @@ if ($id) {
                     <div class="scroll-box mt-3">
                         <table class="table">
                             <tr class="table-dark">
-                                <th>ID:</th>
-                                <th>CAPA:</th>
-                                <th>NOME:</th>
-                                <th>DESCRICAO:</th>
-                                <th>AREA DE ATUAÇÃO:</th>
-                                <th>TIPO:</th>
-                                <th>LOCAIS:</th>
-                                <th>STATUS:</th>
-                                <th>OPÇÕES:</th>
+                                <th class="text-center">ID:</th>
+                                <th class="text-center">CAPA:</th>
+                                <th class="text-center">NOME:</th>
+                                <th class="text-center">DESCRICAO:</th>
+                                <th class="text-center">AREA DE ATUAÇÃO:</th>
+                                <th class="text-center">TIPO:</th>
+                                <th class="text-center">LOCAIS:</th>
+                                <th class="text-center">STATUS:</th>
+                                <th class="text-center">OPÇÕES:</th>
                             </tr>
 
                             <?php
@@ -201,26 +201,26 @@ if ($id) {
                                 }
                                 ?>
                                 <tr>
-                                    <td><?php echo $dados['id']; ?></td>
-                                    <td style="width: 150px;">
+                                    <td class="text-center"><?php echo $dados['id']; ?></td>
+                                    <td class="text-center" style="width: 150px;">
                                         <img src="../uploads/<?php echo $dados['imagem']; ?>" class="imgBorda"
                                             height="120px">
                                     </td>
-                                    <td><?php echo $dados['nome']; ?></td>
-                                    <td><button class="btn btn-info btn-sm"
+                                    <td class="text-center"><?php echo $dados['nome']; ?></td>
+                                    <td class="text-center"><button class="btn btn-info btn-sm"
                                             onclick="mostrarDes(`<?php echo htmlspecialchars($dados['descricao'], ENT_QUOTES | ENT_HTML5); ?>`)">
                                             Ver descrição
                                         </button></td>
-                                    <td><button class="btn btn-info btn-sm"
+                                    <td class="text-center"><button class="btn btn-info btn-sm"
                                             onclick="mostrarAtu(`<?php echo htmlspecialchars($dados['atuacao'], ENT_QUOTES | ENT_HTML5); ?>`)">
                                             Ver area de atuação
                                         </button></td>
-                                    <td><?php echo $dados['tipo'] == 1 ? 'Subsequente' : 'Integrado'; ?></td>
-                                    <td><button class="btn btn-info btn-sm"
+                                    <td class="text-center"><?php echo $dados['tipo'] == 1 ? 'Subsequente' : 'Integrado'; ?></td>
+                                    <td class="text-center"><button class="btn btn-info btn-sm"
                                             onclick="mostrarDes('<?php echo htmlspecialchars(implode(', ', $locaisNomes), ENT_QUOTES | ENT_HTML5); ?>')">
                                             Ver locais
                                         </button></td>
-                                    <td><?php echo $dados['status'] == 1 ? 'Ativo' : 'Desativo'; ?></td>
+                                    <td class="text-center"><?php echo $dados['status'] == 1 ? 'Ativo' : 'Desativo'; ?></td>
                                     <td class="text-center">
                                         <a href="cursos-cadastro.php?id=<?php echo $dados['id']; ?>"
                                             class="btn btn-warning btn-sm">

@@ -11,7 +11,7 @@
                 <div class="d-flex justify-content-center flex-wrap gap-2">
                     <span>07:30 às 11:50</span>
                     <span>13:00 às 17:20</span>
-                    <span>18:40 às 22:30</span>
+                    <span>18:40 às 23:00</span>
                 </div>
 
                 <!-- Ícones sociais -->
@@ -20,8 +20,11 @@
                         class="text-white fs-5 mx-2"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.facebook.com/ceeplaranjeirasdosul" class="text-white fs-5 mx-2"><i
                             class="fab fa-facebook"></i></a>
-                    <a href="https://wa.me/554236352397?text=Olá%20quero%20mais%20informações!" class="text-white fs-5 mx-2"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="text-white fs-5 mx-2"><i class="fas fa-envelope"></i></a>
+                    <a href="https://wa.me/554236352397?text=Olá%20quero%20mais%20informações!"
+                        class="text-white fs-5 mx-2"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ljsceeplaranjeiras@seed.pr.gov.br" class="text-white fs-5 mx-2">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
 
@@ -59,11 +62,11 @@
 
 
 <script>
-    
-    document.addEventListener('DOMContentLoaded', function() {
+
+    document.addEventListener('DOMContentLoaded', function () {
         const galleryTab = document.querySelector('#gallery-tab');
 
-        galleryTab?.addEventListener('shown.bs.tab', function() {
+        galleryTab?.addEventListener('shown.bs.tab', function () {
             Fancybox.destroy(); // remove binds antigos
             Fancybox.bind('[data-fancybox="galeria"]'); // reativa todos
         });

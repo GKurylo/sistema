@@ -132,29 +132,34 @@
                 <div class="carousel-galeria js-flickity"
                     data-flickity='{"wrapAround": true, "pageDots": false, "autoPlay": 2500, "draggable": true}'>
                     <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="img/enfermagem.jpeg">
+                        <a data-fancybox="galeria" href="imagens/formaturaadm.jpg">
                             <img src="imagens/formaturaadm.jpg" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 2">
                         </a>
                     </div>
                     <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="img/estacionamento.jpeg">
+                        <a data-fancybox="galeria" href="imagens/FACHADA.jpg">
                             <img src="imagens/FACHADA.jpg" class="galeria-img img-fluid rounded shadow-sm"
                                 alt="Foto 3">
                         </a>
                     </div>
                     <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="img/farmacia.jpeg">
+                        <a data-fancybox="galeria" href="imagens/estacionamento.jpeg">
                             <img src="imagens/estacionamento.jpeg" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 4">
                         </a>
                     </div>
                     <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="img/estacionamento.jpeg">
+                        <a data-fancybox="galeria" href="imagens/turmaadm.jpg">
                             <img src="imagens/turmaadm.jpg" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 3">
                         </a>
                     </div>
                     <div class="carousel-cell">
-                        <a data-fancybox="galeria" href="img/estacionamento.jpeg">
+                        <a data-fancybox="galeria" href="imagens/quadra1.jpeg">
                             <img src="imagens/quadra1.jpeg" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 3">
+                        </a>
+                    </div>
+                    <div class="carousel-cell">
+                        <a data-fancybox="galeria" href="imagens/quadra3.jpeg">
+                            <img src="imagens/quadra3.jpeg" class="galeria-img img-fluid rounded shadow-sm" alt="Foto 3">
                         </a>
                     </div>
                     <!-- Adicione mais imagens aqui -->
