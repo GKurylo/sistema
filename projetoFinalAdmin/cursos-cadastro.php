@@ -19,6 +19,7 @@ if ($id) {
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.5.2/dist/select2-bootstrap4.min.css"
         rel="stylesheet" />
+    <script src="../CKeditor/ckeditor.js"> type = "text/css" </script>
     <?php include("app-header.php"); ?>
 </head>
 
@@ -215,7 +216,8 @@ if ($id) {
                                             onclick="mostrarAtu(`<?php echo htmlspecialchars($dados['atuacao'], ENT_QUOTES | ENT_HTML5); ?>`)">
                                             Ver area de atuação
                                         </button></td>
-                                    <td class="text-center"><?php echo $dados['tipo'] == 1 ? 'Subsequente' : 'Integrado'; ?></td>
+                                    <td class="text-center"><?php echo $dados['tipo'] == 1 ? 'Subsequente' : 'Integrado'; ?>
+                                    </td>
                                     <td class="text-center"><button class="btn btn-info btn-sm"
                                             onclick="mostrarDes('<?php echo htmlspecialchars(implode(', ', $locaisNomes), ENT_QUOTES | ENT_HTML5); ?>')">
                                             Ver locais
@@ -288,6 +290,34 @@ if ($id) {
             let button = event.relatedTarget;
             let albumId = button.getAttribute('data-album-id');
             document.getElementById('iframeFotos').src = 'cursos-listar.php?id=' + albumId;
+        });
+    </script>]
+    <script type="text/javascript">
+        $(function () {
+            CKEDITOR.replace('atuacao', {
+                enterMode: CKEDITOR.ENTER_BR,
+                filebrowserImageBrowseUrl: 'app-imgupload.php?list=1',
+                filebrowserImageUploadUrl: 'app-imgupload.php',
+                filebrowserWindowWidth: '882',
+                filebrowserWindowHeight: '600',
+                height: '100',
+                extraPlugins: 'tableresize'
+            });
+            CKEDITOR.replace('descricao', {
+                enterMode: CKEDITOR.ENTER_BR,
+                filebrowserImageBrowseUrl: 'app-imgupload.php?list=1',
+                filebrowserImageUploadUrl: 'app-imgupload.php',
+                filebrowserWindowWidth: '882',
+                filebrowserWindowHeight: '600',
+                height: '100',
+                extraPlugins: 'tableresize'
+            });
+            CKEDITOR.config.skin = 'bootstrapck';
+            CKEDITOR.config.forcePasteAsPlainText = true;
+            CKEDITOR.config.toolbar = [
+                ["Source", "Preview", "Bold", "Italic", "Underline", "Strike", "StrikeThrough", "-", "Undo", "Redo", "-", "Cut", "Copy", "Paste", "Find", "SelectAll", "Replace", "-", "Outdent", "Indent", "NumberedList", "BulletedList"], ["FontSize"], ["Table", "Image", "SpecialChar", "HorizontalRule", "TextColor", "BGColor", "-", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock"], ["Link", "Unlink"]
+            ];
+            CKEDITOR.config.resize_enabled = false;
         });
     </script>
 </body>
