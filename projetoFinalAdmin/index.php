@@ -2,26 +2,48 @@
 include("conexao.php");
 include("login-validar.php");
 
+// Buscar o cargo do usuário logado
+$sqlCargo = $conn->prepare("SELECT cargo FROM usuarios WHERE id = :id");
+$sqlCargo->bindValue(":id", $_SESSION['id']);
+$sqlCargo->execute();
+$usuario = $sqlCargo->fetch(PDO::FETCH_ASSOC);
+
+$cargo = $usuario['cargo'] ?? 0;
+
 $eventos = [];
-if ($_SESSION['id'] == 1) {
-    $sqlEv = $conn->prepare("SELECT agendas.*, locais.nome AS local, locais.cor FROM agendas 
-        LEFT JOIN locais ON locais.id = agendas.local_id");
+
+if ($cargo == 1) {
+    $sqlEv = $conn->prepare("
+        SELECT agendas.*, locais.nome AS local, locais.cor, usuarios.nome AS usuario_nome, usuarios.cargo 
+        FROM agendas 
+        LEFT JOIN locais ON locais.id = agendas.local_id
+        LEFT JOIN usuarios ON usuarios.id = agendas.usuario_id
+    ");
 } else {
-    $sqlEv = $conn->prepare("SELECT agendas.*, locais.nome AS local, locais.cor FROM agendas 
-        LEFT JOIN locais ON locais.id = agendas.local_id 
-        WHERE agendas.usuario_id = :usuario_id");
+    $sqlEv = $conn->prepare("
+        SELECT agendas.*, locais.nome AS local, locais.cor, usuarios.nome AS usuario_nome, usuarios.cargo 
+        FROM agendas 
+        LEFT JOIN locais ON locais.id = agendas.local_id
+        LEFT JOIN usuarios ON usuarios.id = agendas.usuario_id
+        WHERE agendas.usuario_id = :usuario_id
+    ");
     $sqlEv->bindValue(":usuario_id", $_SESSION['id']);
 }
+
 $sqlEv->execute();
 $sqlEv->setFetchMode(PDO::FETCH_ASSOC);
 
 while ($d = $sqlEv->fetch()) {
-    $horaFim = (isset($d['horariofin']) && !empty($d['horariofin'])) ? $d['horariofin'] : $d['horario'];
+    $horaFim = (!empty($d['horariofin'])) ? $d['horariofin'] : $d['horario'];
+
     $eventos[] = [
-        'title' => $d['local'],
+        'title' => $d['local'] . ' - ' . $d['usuario_nome'],
         'start' => $d['data'] . 'T' . $d['horario'],
         'end' => $d['data'] . 'T' . $horaFim,
-        'color' => $d['cor']
+        'color' => $d['cor'],
+        'extendedProps' => [
+            'usuario' => $d['usuario_nome']
+        ]
     ];
 }
 
@@ -102,7 +124,8 @@ while ($d = $sqlEv->fetch()) {
                         <form class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">Escolha um horário para <span id="localSelecionado"></span> -
-                                    <span id="dataSelecionada2"></span></h5>
+                                    <span id="dataSelecionada2"></span>
+                                </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
                             <div class="modal-body">
@@ -170,8 +193,9 @@ while ($d = $sqlEv->fetch()) {
         document.addEventListener('DOMContentLoaded', () => {
             const eventos = <?php echo json_encode($eventos); ?>;
             const cal = new FullCalendar.Calendar(document.getElementById('calendar'), {
-                initialView: 'dayGridMonth',
+                initialView: 'listWeek',
                 locale: 'pt-br',
+                editable: false,
                 headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek' },
                 dateClick: info => {
                     let [y, mo, da] = info.dateStr.split('-');

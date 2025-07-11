@@ -164,32 +164,33 @@ body {
     overflow: hidden;
     /* Garante que o contêiner englobe a imagem */
 }
+
 /* sofi 
 carrosel galeria*/
 
 .carousel-galeria {
-        width: 100%;
-        margin: 0 auto;
-    }
+    width: 100%;
+    margin: 0 auto;
+}
 
-    .carousel-cell {
-        width: 220px;
-        margin-right: 15px;
-        cursor: grab;
-    }
+.carousel-cell {
+    width: 220px;
+    margin-right: 15px;
+    cursor: grab;
+}
 
-    .galeria-img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 8px;
-        transition: transform 0.3s ease;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+.galeria-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .galeria-img:hover {
-        transform: scale(1.03);
-    }
+.galeria-img:hover {
+    transform: scale(1.03);
+}
 
 /* Seção destaque */
 .highlight-section {
@@ -228,7 +229,12 @@ carrosel galeria*/
 }
 
 /* Títulos */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--text-dark);
     font-weight: 600;
 }
