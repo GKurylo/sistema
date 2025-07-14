@@ -8,7 +8,7 @@ $local = $_POST['txtLocal'] ?? '';
 $data = $_POST['txtData'] ?? '';
 $horario = $_POST['txtHorario'] ?? '';
 $id = $_POST['txtid'] ?? '';
-$usuarios = $_POST['txtUsuario'] ??'';
+$usuarios = $_POST['txtUsuario'] ?? '';
 
 
 // Converter data de dd/mm/yyyy para yyyy-mm-dd
@@ -99,20 +99,26 @@ if (empty($id)) {
 } else {
     // UPDATE
     $sql = $conn->prepare("
-        UPDATE agendas
-        SET local_id = :local, data = :data, horario = :horario, horariofin = :horariofin, observacao = :observacao
-        WHERE id = :id
-    ");
+    UPDATE agendas SET usuario_id = :usuario_id, local_id = :local, data = :data, horario = :horario, horariofin = :horariofin, observacao = :observacao WHERE id = :id
+");
+
+    $sql->bindParam(":usuario_id", $usuario_id);
     $sql->bindParam(":local", $local);
     $sql->bindParam(":data", $data);
     $sql->bindParam(":horario", $horario);
     $sql->bindParam(":horariofin", $horariofin);
     $sql->bindParam(":observacao", $observacao);
-    $sql->bindParam(":id", $id);
+    $sql->bindParam(":id", $id, PDO::PARAM_INT);
+
+    if ($sql->execute()) {
+        echo "Agendado editado com sucesso!";
+    } else {
+        echo "Erro ao editar agendamento.";
+    }
 }
 
 if ($sql) {
-    header("Location: agendas-pesquisar.php");
+    header("Location: index.php");
     exit;
 } else {
     http_response_code(500);
