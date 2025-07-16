@@ -27,7 +27,11 @@ if (isset($id) && isset($dados['horario'])) {
 <html lang="pt-BR">
 
 <head>
-    <title>Cadastro de Agendamentos</title>
+    <title>
+        <?php
+        echo isset($_GET['id']) ? 'Edição de Agendamento' : 'Cadastro de Agendamentos';
+        ?>
+    </title>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.5.2/dist/select2-bootstrap4.min.css"
@@ -48,13 +52,13 @@ if (isset($id) && isset($dados['horario'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Bem-vindo ao Cadastro de agendamentos!</p>
+                    <p>Bem-vindo ao<?php echo isset($_GET['id']) ? ' Edição de Agendamento' : ' Cadastro de Agendamentos';?>!</p>
                     <ul>
-                        <li>Aqui você poderá cadastrar os agendamentos.</li>
-                        <li>Clique em (SEM LOCAL) para selecionar um local.</li>
-                        <li>Clique em (SEM USUÁRIO) para selecionar um usuário ou então selecionar o seu proprio.</li>
-                        <li>Clique em (dd/mm/aaaa) para selecionar uma data para agendar.</li>
-                        <li>Clique em (selecione os horários) para selecionar um ou mais horários do agendamento.</li>
+                        <li><?php echo isset($_GET['id']) ? 'Aqui você poderá editar o seu agendamento.' : 'Aqui você poderá cadastrar os agendamentos.';?></li>
+                        <li><?php echo isset($_GET['id']) ? 'Clique em (SEM LOCAL) se quiser trocar de local.' : 'Clique em (SEM LOCAL) para selecionar um local.';?></li>
+                        <li><?php echo isset($_GET['id']) ? 'Clique em (SEM USUÁRIO) se quiser trocar o usuário ou então selecionar o seu proprio.' : 'Clique em (SEM USUÁRIO) para selecionar um usuário ou então selecionar o seu proprio.';?></li>
+                        <li><?php echo isset($_GET['id']) ? 'Clique em (dd/mm/aaaa) se quiser trocar a data do agendamento.' : 'Clique em (dd/mm/aaaa) para selecionar uma data para agendar.';?></li>
+                        <li><?php echo isset($_GET['id']) ? 'Clique em (selecione os horários) se quiser trocar o horário do agendamento.' : 'Clique em (selecione os horários) para selecionar um ou mais horários do agendamento.';?></li>
                         <li>clique em (Observação) caso queria adicionar uma observação, se tiver terminado de colocar
                             todas as informações, aperte o (botão verde) Gravar.</li>
                     </ul>
@@ -69,8 +73,8 @@ if (isset($id) && isset($dados['horario'])) {
             <div class="row">
                 <div class="card p-2">
 
-                    <h1>Cadastro de Agendamentos</h1>
-                    <p>Cadastre Seu Agendamento</p>
+                    <h1><?php echo isset($_GET['id']) ? 'Edição de Agendamento' : 'Cadastro de Agendamentos';?></h1>
+                    <p><?php echo isset($_GET['id']) ? 'Edição de Agendamento' : 'Cadastro de Agendamentos';?></p>
                     <div class="row mt-3">
 
                         <form action="agendas-acao.php" method="post">

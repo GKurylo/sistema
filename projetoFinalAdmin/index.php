@@ -37,6 +37,7 @@ while ($d = $sqlEv->fetch()) {
     $horaFim = (!empty($d['horariofin'])) ? $d['horariofin'] : $d['horario'];
 
     $eventos[] = [
+        "id" => $d['id'],
         'title' => $d['local'] . ' - ' . $d['usuario_nome'],
         'start' => $d['data'] . 'T' . $d['horario'],
         'end' => $d['data'] . 'T' . $horaFim,
@@ -204,6 +205,12 @@ while ($d = $sqlEv->fetch()) {
                     document.getElementById('inputData').value = info.dateStr;
                     new bootstrap.Modal(document.getElementById('modalLocais')).show();
                 },
+
+                eventClick: function (info) {
+                    const id = info.event.id;
+                    window.location.href = 'agendas-cadastro.php?id=' + id;
+                },
+
                 events: eventos
             });
             cal.render();

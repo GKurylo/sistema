@@ -73,8 +73,8 @@ if ($id) {
 
                             <div class="offset-2 col-8">
                                 <label for="descricao" class="form-label">Descricao:</label>
-                                <input type="text" class="form-control" id="descricao" name="txtDescricao"
-                                    value="<?php echo $dados['descricao'] ?? ''; ?>">
+                                <textarea type="text" class="form-control" id="descricao"
+                                    name="txtDescricao"><?php echo $dados['descricao'] ?? ''; ?></textarea>
                             </div>
 
                             <div class="offset-2 col-8">

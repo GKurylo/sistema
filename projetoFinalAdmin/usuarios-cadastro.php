@@ -13,7 +13,7 @@ if ($id) {
 <html lang="pt-BR">
 
 <head>
-    <title>Cadastro de Usuário</title>
+    <title>Bem-vindo ao<?php echo isset($_GET['id']) ? ' Edição de usuário' : ' Cadastro de usuários';?></title>
     <?php include("app-header.php"); ?>
 
 </head>
@@ -33,14 +33,14 @@ if ($id) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
-                    <h3>Bem-vindo ao Cadastro de Usuários!</h3>
+                    <p>Bem-vindo ao<?php echo isset($_GET['id']) ? ' Edição de usuário' : ' Cadastro de usuários';?>!</p>
                     <ul>
-                        <li>Aqui você encontrara o Cadastro de usuários.</li>
-                        <li>Clique em (nome) e escreva o nome.</li>
-                        <li>Clique em (senha) e escreva a senha.</li>
-                        <li>Clique no (email) e escreva o email.</li>
-                        <li>Clique no (cargo) para selecionar se será professor, administrador ou gestor.</li>
-                        <li>Aperte o (botão verde) Gravar.</li>
+                        <li><?php echo isset($_GET['id']) ? 'Aqui você poderá editar o usuário.' : 'Aqui você poderá cadastrar usuários.';?></li>
+                        <li><?php echo isset($_GET['id']) ? 'Clique em (Nome) se quiser alterar o nome.' : 'Clique em (Nome) para digitar um nome.';?></li>
+                        <li><?php echo isset($_GET['id']) ? 'Clique em (Email) se quiser alterar o email.' : 'Clique em (Email) para digitar um email.';?></li>
+                        <li><?php echo isset($_GET['id']) ? 'Clique em (Status) se quiser desativar o usuário.' : 'Clique em (Status) para deixar desativado este novo usuário.';?></li>
+                        <li><?php echo isset($_GET['id']) ? 'Clique em (Cargo) se quiser trocar o cargo do usuário.' : 'Clique em (Cargo) para selecionar um cargo para o usuário.';?></li>
+                        <li>Se tiver terminado de colocar todas as informações, aperte o (botão verde) Gravar.</li>
                     </ul> 
                 </div>
             </div>
@@ -53,8 +53,8 @@ if ($id) {
             <div class="row">
                 <div class="card p-2">
 
-                    <h1>Cadastro de Usuários</h1>
-                    <p>Cadastre Usuários</p>
+                    <h1>Bem-vindo ao<?php echo isset($_GET['id']) ? ' Edição de usuário' : ' Cadastro de usuários';?></h1>
+                    <p>Faça<?php echo isset($_GET['id']) ? ' a Edição de usuário' : ' o Cadastro de usuários';?></p>
 
                     <div class="row mt-3">
                         <form action="usuarios-acao.php" method="post" class="row">
@@ -63,7 +63,9 @@ if ($id) {
                                                                         } ?>">
                             <div class="col-12 col-md-4 mt-3">
                                 <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="txtNome">
+                                <input type="text" class="form-control" id="nome" name="txtNome" value="<?php if ($id) {
+                                                                            echo $dados["nome"];
+                                                                        } ?>">
                             </div>
                             <?php if (!$id) { ?>
                             <div class="col-12 col-md-4 mt-3">

@@ -18,7 +18,7 @@ if ($id) {
 <html lang="pt-BR">
 
 <head>
-    <title>Cadastro de Locais</title>
+    <title>Bem-vindo ao<?php echo isset($_GET['id']) ? ' Edição de local' : ' Cadastro de locais';?></title>
     <?php include("app-header.php"); ?>
 </head>
 
@@ -35,12 +35,10 @@ if ($id) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
-                    <h3>Bem-vindo ao Cadastro de Locais!</h3>
+                    <h3>Bem-vindo ao<?php echo isset($_GET['id']) ? ' Edição de local' : ' Cadastro de locais';?>!</h3>
                     <ul>
-                        <li>Aqui você encontrara o cadastro de Locais.</li>
-                        <li>Se pretende cadastrar um novo local, preencha todos os campos e clique no (botão verde) Gravar.</li>
-                        <li>Clique no (botão amarelo) se pretende editar o local, edite os campo necessários e aperte o (botão verde) Gravar.</li>
-                        <li>Clique no (botão vermelho) se pretende excluir o local.</li>
+                        <li>Aqui você poderá<?php echo isset($_GET['id']) ?  ' Editar o local' : ' Cadastrar locais';?>.</li>
+                        <li><?php echo isset($_GET['id']) ?  ' Se pretende editar o local clique em (nome), preencha com o novo nome do local ou/e clique em (status) e depois em bloqueado para que este local não apareça, após isto clique no (botão verde) Gravar.' : ' Se pretende cadastrar um novo local clique em (nome), preencha com o nome do campo e clique no (botão verde) Gravar.';?></li>
                     </ul>
                 </div>
             </div>
@@ -52,7 +50,8 @@ if ($id) {
         <div class="container-fluid">
             <div class="row">
                 <div class="card p-2">
-                    <h1>Cadastro de Locais</h1>
+                    <h1>Bem-vindo ao<?php echo isset($_GET['id']) ? ' Edição de local' : ' Cadastro de locais';?></h1>
+                    <p>Aqui você poderá<?php echo isset($_GET['id']) ? ' Editar o local' : ' Cadastrar locais';?></p>
 
                     <div class="row mt-3">
                         <form action="locais-acao.php" method="post" class="row">
